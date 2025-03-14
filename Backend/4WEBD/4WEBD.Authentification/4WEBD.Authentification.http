@@ -1,0 +1,6 @@
+@_4WEBD.Authentification_HostAddress = http://localhost:5253
+
+GET {{_4WEBD.Authentification_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

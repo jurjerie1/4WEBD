@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.Ticket", "4WEBD.Ticket\4WEBD.Ticket.csproj", "{1D104826-663F-4889-8C4F-72D7CA834752}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.User", "4WEBD.User\4WEBD.User.csproj", "{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.Authentification", "4WEBD.Authentification\4WEBD.Authentification.csproj", "{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.Event", "4WEBD.Event\4WEBD.Event.csproj", "{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.Gateways", "4WEBD.Gateways\4WEBD.Gateways.csproj", "{F7A5F7F8-7903-4097-9DFC-2AD3F204FDB0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Éléments de solution", "Éléments de solution", "{63017BFF-1684-42D4-B299-B314884B37E1}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postgres", "Postgres", "{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}"
+	ProjectSection(SolutionItems) = preProject
+		Postgres\Dockerfile = Postgres\Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init-scripts", "init-scripts", "{045DCA96-481E-4147-A65E-41260C88518E}"
+	ProjectSection(SolutionItems) = preProject
+		Postgres\init-scripts\entrypoint.sh = Postgres\init-scripts\entrypoint.sh
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D104826-663F-4889-8C4F-72D7CA834752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D104826-663F-4889-8C4F-72D7CA834752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D104826-663F-4889-8C4F-72D7CA834752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D104826-663F-4889-8C4F-72D7CA834752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A5F7F8-7903-4097-9DFC-2AD3F204FDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A5F7F8-7903-4097-9DFC-2AD3F204FDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A5F7F8-7903-4097-9DFC-2AD3F204FDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A5F7F8-7903-4097-9DFC-2AD3F204FDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F} = {63017BFF-1684-42D4-B299-B314884B37E1}
+		{045DCA96-481E-4147-A65E-41260C88518E} = {8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,47 @@
+services:
+  4WEBD_DB:
+    image: postgres
+    build:
+      context: .
+      dockerfile: ./Postgres/Dockerfile
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_MULTIPLE_DATABASES=USER_DB
+    networks:
+      - 4WEBD_network
+    ports:
+      - "5432:5432"
+    volumes:
+      - 4WEBD_DB_data:/var/lib/postgresql/data
+      - ./Postgres/init-scripts/entrypoint.sh:/docker-entrypoint-initdb.d/multiple-databases.sh
+  4WEBD_ApiGateway:
+    image: 4webd_apigateway
+    build:
+      context: .
+      dockerfile: 4WEBD.Gateways\Dockerfile
+    networks:
+      - 4WEBD_network
+    ports:
+      - "5001:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+
+  4WEBD_USER:
+    image: 4webd_user
+    build:
+      context: .
+      dockerfile: 4WEBD.User\Dockerfile
+    networks:
+      - 4WEBD_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=admin;Password=secret;Database=USER_DB
+
+networks:
+  4WEBD_network:
+    driver: bridge
+
+volumes:
+  4WEBD_DB_data:
+    driver: local

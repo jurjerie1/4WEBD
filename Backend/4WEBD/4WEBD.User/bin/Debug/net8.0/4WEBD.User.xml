@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>4WEBD.User</name>
+    </assembly>
+    <members>
+        <member name="M:_4WEBD.User.Controllers.UserController.Login(_4WEBD.User.Dtos.UserDtos.LoginDto)">
+            <summary>
+            Permet de se connecter
+            </summary>
+            <param name="userDTO"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

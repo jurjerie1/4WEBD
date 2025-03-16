@@ -12,8 +12,10 @@
           "Port": 8080
         }
       ],
-      "AuthenticationProviderKey": "Bearer",
-      "AllowedScopes": []
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
     },
     {
       "UpstreamPathTemplate": "/api/Authentification/{everything}",

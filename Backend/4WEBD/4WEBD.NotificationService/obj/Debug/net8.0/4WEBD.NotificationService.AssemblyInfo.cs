@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.NotificationService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc5937f1b813274c9a6835423dfeb0b9392c1c30")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebf4c68b154f55b1321511a93cf78bd09d227558")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.NotificationService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.NotificationService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

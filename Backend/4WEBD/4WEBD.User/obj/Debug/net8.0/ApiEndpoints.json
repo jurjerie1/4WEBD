@@ -1,8 +1,8 @@
 [
   {
     "ContainingType": "_4WEBD.User.Controllers.UserController",
-    "Method": "Test",
-    "RelativePath": "Users/test",
+    "Method": "GetCurrentUser",
+    "RelativePath": "Users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -11,8 +11,71 @@
   },
   {
     "ContainingType": "_4WEBD.User.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "Users",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "_4WEBD.User.Dtos.UserDtos.UpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.User.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "Users",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.User.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "Users/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.User.Controllers.UserController",
+    "Method": "UpdateUserById",
+    "RelativePath": "Users/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "userDto",
+        "Type": "_4WEBD.User.Dtos.UserDtos.UpdateUserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.User.Controllers.UserController",
     "Method": "GetUsers",
-    "RelativePath": "Users/users",
+    "RelativePath": "Users/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

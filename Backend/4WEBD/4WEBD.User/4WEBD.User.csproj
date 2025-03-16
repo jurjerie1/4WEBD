@@ -33,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\UserDtos\" />
     <Folder Include="ExtensionMethods\" />
   </ItemGroup>
 

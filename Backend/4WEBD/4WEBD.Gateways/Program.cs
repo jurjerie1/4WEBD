@@ -2,6 +2,7 @@ using Ocelot.DependencyInjection;
 using MMLib.SwaggerForOcelot.DependencyInjection;
 using _4WEBD.Gateways;
 using Ocelot.Middleware;
+using _4WEBD.Identity.Shared.ExtensionMethods;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,19 +22,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-var identityUrl = builder.Configuration.GetValue<string>("IdentityUrl");
-var authenticationProviderKey = "TokenJwt";
-
-builder.Services.AddAuthentication()
-    .AddJwtBearer(authenticationProviderKey, x =>
-    {
-        x.Authority = identityUrl;
-        x.RequireHttpsMetadata = false;
-        x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
-        {
-            ValidAudiences = new[] { "User", "Events", "Orders" }
-        };
-    });
+builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();
 
@@ -48,4 +37,5 @@ await app.UseOcelot();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.Run();

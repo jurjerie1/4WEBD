@@ -1,14 +1,31 @@
 {
   "Routes": [
     {
-      "UpstreamPathTemplate": "/api/Users/{everything}",
+      "UpstreamPathTemplate": "/api/User/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "User",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "4WEBD_User",
+          "Host": "4webd_user",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/Authentification/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "Authentification",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "4webd_auth",
           "Port": 8080
         }
       ]
@@ -21,7 +38,17 @@
         {
           "Name": "4WEBD User API",
           "Version": "v1",
-          "Url": "http://4WEBD_User:8080/swagger/v1/swagger.json"
+          "Url": "http://4webd_user:8080/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "Authentification",
+      "Config": [
+        {
+          "Name": "4WEBD Authentification API",
+          "Version": "v1",
+          "Url": "http://4webd_auth:8080/swagger/v1/swagger.json"
         }
       ]
     }

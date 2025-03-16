@@ -1,7 +1,10 @@
 using System.Reflection;
-using _4WEBD.User.Data;
+using _4WEBD.Identity.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using _4WEBD.Identity.Shared.ExtensionMethods;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,12 +46,29 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddDbContext<UserContext>(options =>
+builder.Services.AddDbContext<IdentityContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("4WEBD_USER_DB"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("4WEBD_USER_DB"),
+        b => b.MigrationsAssembly("4WEBD.User"));
 });
 
+builder.Services.AddCustomizedIdentity();
 
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+var identityUrl = builder.Configuration.GetValue<string>("IdentityUrl");
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+}).AddJwtBearer(options =>
+{
+    options.Authority = identityUrl;
+    options.RequireHttpsMetadata = false;
+    options.Audience = "User";
+});
 
 var app = builder.Build();
 
@@ -64,7 +84,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        var context = services.GetRequiredService<UserContext>();
+        var context = services.GetRequiredService<IdentityContext>();
         context.Database.Migrate();
     }
     catch (Exception ex)
@@ -73,10 +93,11 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

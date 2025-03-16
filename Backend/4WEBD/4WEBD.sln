@@ -22,11 +22,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postgres", "Postgres", "{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}"
 	ProjectSection(SolutionItems) = preProject
 		Postgres\Dockerfile = Postgres\Dockerfile
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "init-scripts", "init-scripts", "{045DCA96-481E-4147-A65E-41260C88518E}"
-	ProjectSection(SolutionItems) = preProject
-		Postgres\init-scripts\entrypoint.sh = Postgres\init-scripts\entrypoint.sh
+		Postgres\init-db.sh = Postgres\init-db.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.SharedClasses", "4WEBD.SharedClasses\4WEBD.SharedClasses.csproj", "{DC93BBE7-6CB7-44D1-B5F1-750EBCC5E34F}"
@@ -38,6 +34,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.NotificationService", "4WEBD.NotificationService\4WEBD.NotificationService.csproj", "{CA5D2C53-FAB7-455D-B1E7-237A3BC6E9DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.NotificationService.Razor.Template", "4WEBD.NotificationService.Razor.Template\4WEBD.NotificationService.Razor.Template.csproj", "{B05E59FE-0C42-46B6-8CBD-0D5458BFC814}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4WEBD.Identity.Shared", "4WEBD.Identity.Shared\4WEBD.Identity.Shared.csproj", "{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,15 +75,19 @@ Global
 		{B05E59FE-0C42-46B6-8CBD-0D5458BFC814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B05E59FE-0C42-46B6-8CBD-0D5458BFC814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B05E59FE-0C42-46B6-8CBD-0D5458BFC814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F} = {63017BFF-1684-42D4-B299-B314884B37E1}
-		{045DCA96-481E-4147-A65E-41260C88518E} = {8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}
 		{DC93BBE7-6CB7-44D1-B5F1-750EBCC5E34F} = {6C4D298B-81FB-2B6B-5AB6-46205EDDC72C}
 		{CA5D2C53-FAB7-455D-B1E7-237A3BC6E9DA} = {AA9EE0C7-4E1A-44BC-243C-C4E356DC2F3C}
 		{B05E59FE-0C42-46B6-8CBD-0D5458BFC814} = {AA9EE0C7-4E1A-44BC-243C-C4E356DC2F3C}
+		{6F0FFD48-70A5-47D0-8AC3-D823A79F2995} = {6C4D298B-81FB-2B6B-5AB6-46205EDDC72C}
 	EndGlobalSection
 EndGlobal

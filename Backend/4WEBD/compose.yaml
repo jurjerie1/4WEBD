@@ -5,16 +5,20 @@ services:
       context: .
       dockerfile: ./Postgres/Dockerfile
     environment:
-      - POSTGRES_USER=admin
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_MULTIPLE_DATABASES=USER_DB
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_MULTIPLE_DATABASES=user_db
     networks:
       - 4WEBD_network
     ports:
       - "5432:5432"
     volumes:
       - 4WEBD_DB_data:/var/lib/postgresql/data
-      - ./Postgres/init-scripts/entrypoint.sh:/docker-entrypoint-initdb.d/multiple-databases.sh
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   4WEBD_ApiGateway:
     image: 4webd_apigateway
     build:
@@ -26,6 +30,10 @@ services:
       - "5001:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - IdentityUrl=http://4webd_auth:8080
+
+    depends_on:
+      - 4WEBD_USER
 
   4WEBD_USER:
     image: 4webd_user
@@ -37,9 +45,31 @@ services:
       - 4WEBD_notification_network
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
-      - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=admin;Password=secret;Database=USER_DB
-  
-  SUPMAP_RabbitMQ:
+      - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=user_db
+      - IdentityUrl=http://4webd_auth:8080
+    depends_on:
+      4WEBD_RabbitMQ:
+        condition: service_healthy
+      4WEBD_DB:
+        condition: service_healthy
+  4WEBD_AUTH:
+    image: 4webd_auth
+    build:
+      context: .
+      dockerfile: 4WEBD.Authentification\Dockerfile
+    networks:
+      - 4WEBD_network
+      - 4WEBD_notification_network
+    ports:
+      - "5002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=user_db
+      - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
+      - Jwt__Key=${JWT_KEY}
+    depends_on:
+      - 4WEBD_USER
+  4WEBD_RabbitMQ:
     image: rabbitmq:4.0-management
     environment:
       - RABBITMQ_DEFAULT_USER=admin
@@ -51,8 +81,8 @@ services:
       - "5672:5672"
     healthcheck:
       test: rabbitmq-diagnostics -q ping
-      interval: 30s
-      timeout: 30s
+      interval: 10s
+      timeout: 5s
       retries: 3
 
   4WEBD_Notification:
@@ -67,8 +97,7 @@ services:
       - 4WEBD_network
       - 4WEBD_notification_network
     depends_on:
-      - SUPMAP_RabbitMQ 
-    
+      - 4WEBD_RabbitMQ
 
 networks:
   4WEBD_network:

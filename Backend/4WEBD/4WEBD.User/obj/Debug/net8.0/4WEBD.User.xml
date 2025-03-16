@@ -4,12 +4,17 @@
         <name>4WEBD.User</name>
     </assembly>
     <members>
-        <member name="M:_4WEBD.User.Controllers.UserController.Login(_4WEBD.User.Dtos.UserDtos.LoginDto)">
-            <summary>
-            Permet de se connecter
-            </summary>
-            <param name="userDTO"></param>
-            <returns></returns>
+        <member name="T:_4WEBD.User.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

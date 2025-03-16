@@ -37,7 +37,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=admin;Password=secret;Database=USER_DB
-
+  
+  4WEBD_EVENT:
+    image: 4webd_event
+    build:
+      context: .
+      dockerfile: 4WEBD.Event\Dockerfile
+    networks:
+      - 4WEBD_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__4WEBD_EVENT_DB=Host=4WEBD_DB;Username=admin;Password=secret;Database=EVENT_DB
+      
 networks:
   4WEBD_network:
     driver: bridge

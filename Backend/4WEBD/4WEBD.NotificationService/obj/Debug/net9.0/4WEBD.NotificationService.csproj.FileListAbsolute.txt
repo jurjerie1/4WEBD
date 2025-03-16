@@ -1,0 +1,6 @@
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.csproj.AssemblyReference.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.GeneratedMSBuildEditorConfig.editorconfig
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.AssemblyInfoInputs.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.AssemblyInfo.cs
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.csproj.CoreCompileInputs.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net9.0\4WEBD.NotificationService.sourcelink.json

@@ -34,12 +34,46 @@ services:
       dockerfile: 4WEBD.User\Dockerfile
     networks:
       - 4WEBD_network
+      - 4WEBD_notification_network
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=admin;Password=secret;Database=USER_DB
+  
+  SUPMAP_RabbitMQ:
+    image: rabbitmq:4.0-management
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=secret
+    networks:
+      - 4WEBD_notification_network
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  4WEBD_Notification:
+    image: 4webd_notification
+    build:
+      context: .
+      dockerfile: 4WEBD.NotificationService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
+    networks:
+      - 4WEBD_network
+      - 4WEBD_notification_network
+    depends_on:
+      - SUPMAP_RabbitMQ 
+    
 
 networks:
   4WEBD_network:
+    driver: bridge
+  4WEBD_notification_network:
     driver: bridge
 
 volumes:

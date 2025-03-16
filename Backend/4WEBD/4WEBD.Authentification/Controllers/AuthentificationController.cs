@@ -1,5 +1,4 @@
 using _4WEBD.Authentification.Dtos;
-using _4WEBD.Authentification.Services;
 using _4WEBD.Identity.Shared.Data;
 using _4WEBD.Identity.Shared.Models;
 using _4WEBD.SharedClasses;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MassTransit;
+using _4WEBD.Identity.Shared.Services;
 
 namespace _4WEBD.Authentification.Controllers
 {

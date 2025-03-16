@@ -53,22 +53,8 @@ builder.Services.AddDbContext<IdentityContext>(options =>
 });
 
 builder.Services.AddCustomizedIdentity();
+builder.Services.AddCustomJwtAuthentication();
 
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
-var identityUrl = builder.Configuration.GetValue<string>("IdentityUrl");
-
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-
-}).AddJwtBearer(options =>
-{
-    options.Authority = identityUrl;
-    options.RequireHttpsMetadata = false;
-    options.Audience = "User";
-});
 
 var app = builder.Build();
 
@@ -98,6 +84,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.UseAuthentication();
+
 app.MapControllers();
 
 app.Run();

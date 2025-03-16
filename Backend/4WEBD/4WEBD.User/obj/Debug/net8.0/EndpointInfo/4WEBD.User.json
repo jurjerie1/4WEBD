@@ -5,7 +5,19 @@
     "version": "v1"
   },
   "paths": {
-    "/users": {
+    "/Users/users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Users/test": {
       "get": {
         "tags": [
           "User"

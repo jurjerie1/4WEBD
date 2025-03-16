@@ -46,4 +46,6 @@ app.UseCors("AllowAllOrigins");
 
 await app.UseOcelot();
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.Run();

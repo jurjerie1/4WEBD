@@ -31,37 +31,12 @@
             <param name="services"></param>
             <param name="configuration">La configuration de l'application.</param>
         </member>
-        <member name="M:_4WEBD.Authentification.ExtensionMethods.SecurityMethods.AddCustomAuthentification(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Ajouter l'authentification personnalisée.
-            </summary>
-            <param name="services"></param>
-            <param name="configuration">La configuration de l'application.</param>
-        </member>
-        <member name="M:_4WEBD.Authentification.ExtensionMethods.SecurityMethods.AddAuthorization(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
-            <summary>
-            Ajoute les politiques d'autorisation à la collection de services.
-            </summary>
-            <param name="services"></param>
-            <param name="configuration">La configuration de l'application.</param>
-        </member>
         <member name="M:_4WEBD.Authentification.ExtensionMethods.SecurityMethods.AddCustomCors(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             Ajoute des politiques CORS personnalisées à la collection de services.
             </summary>
             <param name="services">La collection de services.</param>
             <param name="configuration">La configuration de l'application.</param>
-        </member>
-        <member name="M:_4WEBD.Authentification.Services.TokenService.GenerateJwtToken(_4WEBD.Identity.Shared.Models.UserModel,System.String)">
-            <summary>
-            Génère un jeton JWT (JSON Web Token) pour un utilisateur spécifié.
-            </summary>
-            <param name="user">L'utilisateur pour lequel le jeton JWT est généré.</param>
-            <returns>Le jeton JWT généré sous forme de chaîne de caractères.</returns>
-            <remarks>
-            Cette méthode crée un jeton JWT en utilisant les informations de l'utilisateur spécifié, y compris l'ID de l'utilisateur et son email.
-            Le jeton est signé en utilisant l'algorithme HMAC SHA256.
-            </remarks>
         </member>
     </members>
 </doc>

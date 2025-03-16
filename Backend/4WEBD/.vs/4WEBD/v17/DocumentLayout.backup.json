@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "H:\\4WEBD\\Backend\\4WEBD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|Postgres{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|H:\\4WEBD\\Backend\\4WEBD\\init-db.sh||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|Postgres{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|solutionrelative:init-db.sh||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|Postgres{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|H:\\4WEBD\\Backend\\4WEBD\\Postgres\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|Postgres{8C9BFC7B-1E0C-4811-9EEE-4864CE5CF32F}|solutionrelative:Postgres\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|h:\\4webd\\backend\\4webd\\4webd.identity.shared\\extensionmethods\\identityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|solutionrelative:4webd.identity.shared\\extensionmethods\\identityextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\data\\identitycontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\data\\identitycontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|h:\\4webd\\backend\\4webd\\4webd.identity.shared\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|solutionrelative:4webd.identity.shared\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|h:\\4webd\\backend\\4webd\\4webd.authentification\\controllers\\authentificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|solutionrelative:4webd.authentification\\controllers\\authentificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|h:\\4webd\\backend\\4webd\\4webd.identity.shared\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6F0FFD48-70A5-47D0-8AC3-D823A79F2995}|4WEBD.Identity.Shared\\4WEBD.Identity.Shared.csproj|solutionrelative:4webd.identity.shared\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|h:\\4webd\\backend\\4webd\\4webd.authentification\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|solutionrelative:4webd.authentification\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|h:\\4webd\\backend\\4webd\\4webd.authentification\\extensionmethods\\securitymethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B66766BA-C3E3-4DF8-AAD6-5BC7CD1B8D0C}|4WEBD.Authentification\\4WEBD.Authentification.csproj|solutionrelative:4webd.authentification\\extensionmethods\\securitymethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\data\\identitycontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\data\\identitycontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +46,124 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\Postgres\\Dockerfile",
-              "RelativeDocumentMoniker": "Postgres\\Dockerfile",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\Postgres\\Dockerfile",
-              "RelativeToolTip": "Postgres\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-16T11:27:25.121Z",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\appsettings.json",
+              "RelativeDocumentMoniker": "4WEBD.Authentification\\appsettings.json",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\appsettings.json",
+              "RelativeToolTip": "4WEBD.Authentification\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-16T16:07:05.479Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "init-db.sh",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\init-db.sh",
-              "RelativeDocumentMoniker": "init-db.sh",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\init-db.sh",
-              "RelativeToolTip": "init-db.sh",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-16T11:26:32.317Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IdentityContextFactory.cs",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Data\\IdentityContextFactory.cs",
-              "RelativeDocumentMoniker": "4WEBD.User\\Data\\IdentityContextFactory.cs",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Data\\IdentityContextFactory.cs",
-              "RelativeToolTip": "4WEBD.User\\Data\\IdentityContextFactory.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T10:59:08.653Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "appsettings.json",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\appsettings.json",
-              "RelativeDocumentMoniker": "4WEBD.User\\appsettings.json",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\appsettings.json",
-              "RelativeToolTip": "4WEBD.User\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\appsettings.json",
+              "RelativeDocumentMoniker": "4WEBD.Identity.Shared\\appsettings.json",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\appsettings.json",
+              "RelativeToolTip": "4WEBD.Identity.Shared\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-16T10:57:54.042Z"
+              "WhenOpened": "2025-03-16T16:06:54.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthentificationController.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\Controllers\\AuthentificationController.cs",
+              "RelativeDocumentMoniker": "4WEBD.Authentification\\Controllers\\AuthentificationController.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\Controllers\\AuthentificationController.cs",
+              "RelativeToolTip": "4WEBD.Authentification\\Controllers\\AuthentificationController.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwCYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T16:02:34.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "4WEBD.Identity.Shared\\Services\\TokenService.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\Services\\TokenService.cs",
+              "RelativeToolTip": "4WEBD.Identity.Shared\\Services\\TokenService.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T16:01:59.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\appsettings.json",
+              "RelativeDocumentMoniker": "4WEBD.User\\appsettings.json",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\appsettings.json",
+              "RelativeToolTip": "4WEBD.User\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-16T16:01:13.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IdentityContextFactory.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Data\\IdentityContextFactory.cs",
+              "RelativeDocumentMoniker": "4WEBD.User\\Data\\IdentityContextFactory.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Data\\IdentityContextFactory.cs",
+              "RelativeToolTip": "4WEBD.User\\Data\\IdentityContextFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T15:59:23.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SecurityMethods.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\ExtensionMethods\\SecurityMethods.cs",
+              "RelativeDocumentMoniker": "4WEBD.Authentification\\ExtensionMethods\\SecurityMethods.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Authentification\\ExtensionMethods\\SecurityMethods.cs",
+              "RelativeToolTip": "4WEBD.Authentification\\ExtensionMethods\\SecurityMethods.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T15:54:12.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IdentityExtensions.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\ExtensionMethods\\IdentityExtensions.cs",
+              "RelativeDocumentMoniker": "4WEBD.Identity.Shared\\ExtensionMethods\\IdentityExtensions.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Identity.Shared\\ExtensionMethods\\IdentityExtensions.cs",
+              "RelativeToolTip": "4WEBD.Identity.Shared\\ExtensionMethods\\IdentityExtensions.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T15:49:54.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Program.cs",
               "RelativeDocumentMoniker": "4WEBD.User\\Program.cs",
               "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Program.cs",
               "RelativeToolTip": "4WEBD.User\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAD8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADcAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T10:39:22.761Z",
+              "WhenOpened": "2025-03-16T15:49:42.221Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "4WEBD.User\\Controllers\\UserController.cs",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Controllers\\UserController.cs",
-              "RelativeToolTip": "4WEBD.User\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T10:34:21.064Z"
             }
           ]
         }

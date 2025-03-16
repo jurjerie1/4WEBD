@@ -1,8 +1,18 @@
 [
   {
     "ContainingType": "_4WEBD.User.Controllers.UserController",
+    "Method": "Test",
+    "RelativePath": "Users/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.User.Controllers.UserController",
     "Method": "GetUsers",
-    "RelativePath": "users",
+    "RelativePath": "Users/users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

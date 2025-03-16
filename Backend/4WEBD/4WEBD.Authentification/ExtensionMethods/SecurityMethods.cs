@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using _4WEBD.Identity.Shared.ExtensionMethods;
 
 namespace _4WEBD.Authentification.ExtensionMethods;
 
@@ -25,49 +26,7 @@ public static class SecurityMethods
     {
         services.AddCustomCors(configuration);
 
-        services.AddCustomAuthentification(configuration);
-        services.AddAuthorization(configuration);
-    }
-
-    /// <summary>
-    /// Ajouter l'authentification personnalisée.
-    /// </summary>
-    /// <param name="services"></param>
-    /// <param name="configuration">La configuration de l'application.</param>
-    public static void AddCustomAuthentification(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-        .AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])),
-                ValidateIssuer = true,
-                ValidateAudience = false,
-                ValidateLifetime = false,
-            };
-        });
-
-    }
-
-    /// <summary>
-    /// Ajoute les politiques d'autorisation à la collection de services.
-    /// </summary>
-    /// <param name="services"></param>
-    /// <param name="configuration">La configuration de l'application.</param>
-    public static void AddAuthorization(this IServiceCollection services, IConfiguration configuration)
-    {
-        services.AddAuthorization(options =>
-        {
-            // Politique pour administrateur
-            options.AddPolicy("RequireAdminRole", policy =>
-            {
-                policy.RequireAuthenticatedUser();
-                policy.RequireRole("admin");
-            });
-
-        });
+        services.AddCustomJwtAuthentication();
     }
 
     /// <summary>

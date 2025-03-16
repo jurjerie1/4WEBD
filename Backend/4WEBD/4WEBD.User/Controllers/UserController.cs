@@ -13,7 +13,6 @@ namespace _4WEBD.User.Controllers;
 
 [Route("[controller]s")]
 [ApiController]
-[Authorize]
 public class UserController(IdentityContext context, UserManager<UserModel> userManager, IConfiguration configuration, RoleManager<IdentityRole<Guid>> roleManager) : ControllerBase
 {
 
@@ -30,10 +29,19 @@ public class UserController(IdentityContext context, UserManager<UserModel> user
 
     [HttpGet]
     [Route("users")]
+    [Authorize]
     public async Task<IActionResult> GetUsers()
     {
         var users = await _context.Users.ToListAsync();
         return Ok(users);
+    }
+
+    [HttpGet]
+    [Route("test")]
+    [Authorize(Roles = "User")]
+    public IActionResult Test()
+    {
+        return Ok("Test");
     }
 
 }

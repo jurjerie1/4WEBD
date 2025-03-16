@@ -38,7 +38,7 @@ public class UserController(IdentityContext context, UserManager<UserModel> user
 
     [HttpGet]
     [Route("test")]
-    [Authorize(Roles = "User")]
+    [Authorize(Roles = "user")]
     public IActionResult Test()
     {
         return Ok("Test");

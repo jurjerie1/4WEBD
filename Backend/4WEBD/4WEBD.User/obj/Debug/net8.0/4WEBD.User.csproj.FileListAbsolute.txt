@@ -150,4 +150,3 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.IdentityModel.Proto
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.Identity.Shared.dll.config
-H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

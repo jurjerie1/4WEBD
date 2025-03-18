@@ -31,6 +31,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - IdentityUrl=http://4webd_auth:8080
+      - Jwt__Key=${JWT_KEY}
+
 
     depends_on:
       - 4WEBD_USER
@@ -46,6 +48,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=user_db
+      - Jwt__Key=${JWT_KEY}
       - IdentityUrl=http://4webd_auth:8080
     depends_on:
       4WEBD_RabbitMQ:

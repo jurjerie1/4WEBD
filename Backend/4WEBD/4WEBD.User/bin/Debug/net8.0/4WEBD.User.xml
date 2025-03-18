@@ -4,6 +4,27 @@
         <name>4WEBD.User</name>
     </assembly>
     <members>
+        <member name="M:_4WEBD.User.Controllers.RoleController.Create(System.String)">
+            <summary>
+            Crée un nouveau rôle.
+            </summary>
+            <param name="name">Le nom du rôle à créer.</param>
+            <returns>Un résultat IActionResult indiquant si l'opération a réussi ou échoué.</returns>
+        </member>
+        <member name="M:_4WEBD.User.Controllers.RoleController.Get">
+            <summary>
+            Permet de récupérer la liste des roles
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.User.Controllers.RoleController.AddRoleToUser(System.Guid,System.Guid)">
+            <summary>
+            Ajoute un role à un utilisateur
+            </summary>
+            <param name="roleID"></param>
+            <param name="userID"></param>
+            <returns></returns>
+        </member>
         <member name="M:_4WEBD.User.Controllers.UserController.GetUsers">
             <summary>
             Permet de récupérer tous les utilisateurs.

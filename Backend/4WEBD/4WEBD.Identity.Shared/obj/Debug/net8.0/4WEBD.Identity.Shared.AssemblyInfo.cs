@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.Identity.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebf4c68b154f55b1321511a93cf78bd09d227558")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ae5d4d81359288080c9ddc53c59ea92c85a1e0e5")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.Identity.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.Identity.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

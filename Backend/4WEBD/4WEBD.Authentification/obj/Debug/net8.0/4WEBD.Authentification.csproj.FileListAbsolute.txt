@@ -89,4 +89,3 @@ H:\4WEBD\Backend\4WEBD\4WEBD.Authentification\bin\Debug\net8.0\System.Security.C
 H:\4WEBD\Backend\4WEBD\4WEBD.Authentification\bin\Debug\net8.0\System.Security.Cryptography.Xml.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.Authentification\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.Authentification\bin\Debug\net8.0\4WEBD.Identity.Shared.dll.config
-H:\4WEBD\Backend\4WEBD\4WEBD.Authentification\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

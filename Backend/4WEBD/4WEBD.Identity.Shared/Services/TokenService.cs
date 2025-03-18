@@ -34,7 +34,7 @@ namespace _4WEBD.Identity.Shared.Services
         /// Cette méthode crée un jeton JWT en utilisant les informations de l'utilisateur spécifié, y compris l'ID de l'utilisateur et son email.
         /// Le jeton est signé en utilisant l'algorithme HMAC SHA256.
         /// </remarks>
-        public string GenerateJwtToken(UserModel user, string role)
+        public string GenerateJwtToken(UserModel user, ICollection<string> roles)
         {
             var jwtTokenHandler = new JwtSecurityTokenHandler();
 
@@ -44,22 +44,28 @@ namespace _4WEBD.Identity.Shared.Services
 
             var key = Encoding.UTF8.GetBytes(configurationRoot["Jwt:Key"]);
 
+            var claims = new List<Claim>
+    {
+        new Claim("Id", user.Id.ToString()),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim(JwtRegisteredClaimNames.Name, user.UserName),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+    };
+
+            // Add each role as a separate claim
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new Claim[]
-                {
-                    new Claim("Id", user.Id.ToString()),
-                    new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, role),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                }),
+                Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             };
 
             var token = jwtTokenHandler.CreateToken(tokenDescriptor);
-
             var jwtToken = jwtTokenHandler.WriteToken(token);
 
             return jwtToken;

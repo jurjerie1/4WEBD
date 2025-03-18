@@ -57,7 +57,11 @@ namespace _4WEBD.Authentification.Controllers
                 return BadRequest("Le couple Email / mot de passe est incorrect.");
             }
 
-            var role = _userManager.GetRolesAsync(user).Result.FirstOrDefault() ?? "user";
+            var role = _userManager.GetRolesAsync(user).Result;
+            if(role.Count == 0)
+            {
+                role.Add("user");
+            }
 
             await _context.SaveChangesAsync();
             return Ok(new LoginResultDto(user, role, _tokenService.GenerateJwtToken(user, role)));

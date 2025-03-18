@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "4WEBD.NotificationService.Razor.Template/1.0.0": {
+        "dependencies": {
+          "Razor.Templating.Core": "2.1.0"
+        },
+        "runtime": {
+          "4WEBD.NotificationService.Razor.Template.dll": {}
+        }
+      },
+      "Razor.Templating.Core/2.1.0": {
+        "runtime": {
+          "lib/net6.0/Razor.Templating.Core.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "4WEBD.NotificationService.Razor.Template/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Razor.Templating.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bZFEUp+ZYdEb51zJNsuXd3IEvkz0Y6OAqF4bnJzq/B8gRdlY9cA1PkDY6uWnmFANk6whKi6QVypxA8QWRS9LOA==",
+      "path": "razor.templating.core/2.1.0",
+      "hashPath": "razor.templating.core.2.1.0.nupkg.sha512"
+    }
+  }
+}

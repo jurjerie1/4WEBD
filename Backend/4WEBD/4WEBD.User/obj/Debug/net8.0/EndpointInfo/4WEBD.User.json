@@ -5,28 +5,167 @@
     "version": "v1"
   },
   "paths": {
-    "/login": {
-      "post": {
+    "/Users/GetAll": {
+      "get": {
         "tags": [
           "User"
         ],
-        "summary": "Permet de se connecter",
+        "summary": "Permet de récupérer tous les utilisateurs.",
+        "responses": {
+          "200": {
+            "description": "Retourne une liste d'utilisateurs."
+          },
+          "403": {
+            "description": "Si l'utilisateur n'est pas autorisé."
+          },
+          "401": {
+            "description": "Si l'utilisateur n'est pas authentifié."
+          }
+        }
+      }
+    },
+    "/Users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Permet de récupérer l'utilisateur actuellement connecté.",
+        "responses": {
+          "200": {
+            "description": "Retourne l'utilisateur actuellement connecté."
+          },
+          "404": {
+            "description": "Si l'utilisateur n'existe pas."
+          },
+          "403": {
+            "description": "Si l'utilisateur n'est pas autorisé."
+          },
+          "401": {
+            "description": "Si l'utilisateur n'est pas authentifié."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Permet de mettre à jour l'utilisateur connecté.",
         "requestBody": {
           "description": "",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginDto"
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginDto"
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/LoginDto"
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Retourne un message de succès et l'utilisateur mis à jour."
+          },
+          "404": {
+            "description": "Si l'utilisateur n'existe pas."
+          },
+          "400": {
+            "description": "Si l'email ou le nom d'utilisateur est déjà utilisé."
+          },
+          "403": {
+            "description": "Si l'utilisateur n'est pas autorisé."
+          },
+          "401": {
+            "description": "Si l'utilisateur n'est pas authentifié."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Permet de supprimer l'utilisateur connecté.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Users/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Permet de récupérer un utilisateur par son id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retourne l'utilisateur correspondant à l'id."
+          },
+          "404": {
+            "description": "Si l'utilisateur n'existe pas."
+          },
+          "403": {
+            "description": "Si l'utilisateur n'est pas autorisé."
+          },
+          "401": {
+            "description": "Si l'utilisateur n'est pas authentifié."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Permet de mettre à jour un utilisateur par son id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
               }
             }
           }
@@ -41,21 +180,28 @@
   },
   "components": {
     "schemas": {
-      "LoginDto": {
-        "required": [
-          "email",
-          "password"
-        ],
+      "UpdateUserDto": {
         "type": "object",
         "properties": {
           "email": {
-            "minLength": 1,
             "type": "string",
-            "format": "email"
+            "nullable": true
           },
-          "password": {
-            "minLength": 1,
-            "type": "string"
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

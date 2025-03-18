@@ -1,0 +1,55 @@
+[
+  {
+    "ContainingType": "_4WEBD.Authentification.Controllers.AuthentificationController",
+    "Method": "ConfirmEmail",
+    "RelativePath": "Authentifications/confirmEmail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.Authentification.Controllers.AuthentificationController",
+    "Method": "Login",
+    "RelativePath": "Authentifications/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDTO",
+        "Type": "_4WEBD.Authentification.Dtos.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "_4WEBD.Authentification.Controllers.AuthentificationController",
+    "Method": "Register",
+    "RelativePath": "Authentifications/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerDTO",
+        "Type": "_4WEBD.Authentification.Dtos.RegisterDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

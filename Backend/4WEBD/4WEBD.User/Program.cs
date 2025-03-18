@@ -1,16 +1,19 @@
 using System.Reflection;
-using _4WEBD.User.Data;
+using _4WEBD.Identity.Shared.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using _4WEBD.Identity.Shared.ExtensionMethods;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
-// ajout partie swagger
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "4WEBD User API", Version = "v1" });
@@ -43,16 +46,19 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddDbContext<UserContext>(options =>
+builder.Services.AddDbContext<IdentityContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("4WEBD_USER_DB"));
+        options.UseNpgsql(builder.Configuration.GetConnectionString("4WEBD_USER_DB"),
+        b => b.MigrationsAssembly("4WEBD.User"));
 });
 
+builder.Services.AddCustomizedIdentity();
+builder.Services.AddCustomJwtAuthentication();
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -64,7 +70,7 @@ using (var scope = app.Services.CreateScope())
     var services = scope.ServiceProvider;
     try
     {
-        var context = services.GetRequiredService<UserContext>();
+        var context = services.GetRequiredService<IdentityContext>();
         context.Database.Migrate();
     }
     catch (Exception ex)
@@ -73,8 +79,10 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
+
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

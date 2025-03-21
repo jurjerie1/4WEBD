@@ -4,9 +4,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _4WEBD.Event.Data;
 
-public class EventContext: DbContext
+public class EventContext : DbContext
 {
-    public EventContext(DbContextOptions options) : base(options)
+    // Changez cette ligne pour utiliser DbContextOptions<EventContext>
+    public EventContext(DbContextOptions<EventContext> options) : base(options)
     {
         
     }

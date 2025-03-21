@@ -11,5 +11,17 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:_4WEBD.Event.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

@@ -1,23 +1,22 @@
 using System;
+using System.IO;
 using Microsoft.EntityFrameworkCore;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace _4WEBD.Event.Data;
 
-public class EventContextFactory
+public class EventContextFactory : IDesignTimeDbContextFactory<EventContext>
 {
-public EventContext CreateDbContext(string[] args)
+    public EventContext CreateDbContext(string[] args)
     {
-        ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
+        var configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "appsettings.json"));
-        IConfigurationRoot configurationRoot = configurationBuilder.Build();
+        var configurationRoot = configurationBuilder.Build();
         
-        DbContextOptionsBuilder builder = new DbContextOptionsBuilder();
-        builder.UseNpgsql(configurationRoot.GetConnectionString("4webd_event"));
+        var optionsBuilder = new DbContextOptionsBuilder<EventContext>();
+        optionsBuilder.UseNpgsql(configurationRoot.GetConnectionString("4webd_event"));
         
-        EventContext context = new EventContext(builder.Options);
-        
-        
-        return context;
+        return new EventContext(optionsBuilder.Options);
     }
 }

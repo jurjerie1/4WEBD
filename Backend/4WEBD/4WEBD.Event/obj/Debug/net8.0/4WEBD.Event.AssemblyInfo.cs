@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.Event")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1286f1b50b248c4e37a5d9bf0934df55cb209d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aa1e955d2d71a4209e419306314743f64fa8787")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.Event")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.Event")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

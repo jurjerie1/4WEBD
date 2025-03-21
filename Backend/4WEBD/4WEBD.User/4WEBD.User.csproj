@@ -32,8 +32,4 @@
     <ProjectReference Include="..\4WEBD.Identity.Shared\4WEBD.Identity.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ExtensionMethods\" />
-  </ItemGroup>
-
 </Project>

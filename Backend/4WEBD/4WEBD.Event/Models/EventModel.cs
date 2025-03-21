@@ -9,4 +9,11 @@ public class EventModel
     public string Description { get; set; }
     public DateTime Date { get; set; }
     public string Location { get; set; }
+
+    #region Constructor
+    public EventModel()
+    {
+        Id = Guid.NewGuid();
+    }
+    #endregion
 }

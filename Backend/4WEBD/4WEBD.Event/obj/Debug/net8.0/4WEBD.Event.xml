@@ -4,5 +4,12 @@
         <name>4WEBD.Event</name>
     </assembly>
     <members>
+        <member name="M:_4WEBD.Event.Controllers.EventController.Get(System.Guid)">
+            <summary>
+            Permet de recuperer un evenement
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

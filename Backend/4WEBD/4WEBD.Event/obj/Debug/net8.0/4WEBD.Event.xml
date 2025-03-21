@@ -4,11 +4,24 @@
         <name>4WEBD.Event</name>
     </assembly>
     <members>
+        <member name="M:_4WEBD.Event.Controllers.EventController.Create(_4WEBD.Event.Dtos.EventDto.EditEventDto)">
+            <summary>
+            Permet de creer un evenement
+            </summary>
+            <param name="eventDto"></param>
+            <returns></returns>
+        </member>
         <member name="M:_4WEBD.Event.Controllers.EventController.Get(System.Guid)">
             <summary>
             Permet de recuperer un evenement
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.Event.Controllers.EventController.GetAll">
+            <summary>
+            Permet de recuperer tous les evenements
+            </summary>
             <returns></returns>
         </member>
         <member name="T:_4WEBD.Event.Migrations.InitialCreate">
@@ -21,6 +34,18 @@
             <inheritdoc />
         </member>
         <member name="M:_4WEBD.Event.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:_4WEBD.Event.Migrations.InitialCreate2">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

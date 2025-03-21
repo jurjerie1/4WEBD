@@ -21,6 +21,7 @@ public class EventDto
         Description = eventModel.Description;
         Date = eventModel.Date;
         Location = eventModel.Location;
+        Image = "/Event/Images/"+eventModel.Image;
     }
     #endregion
 }

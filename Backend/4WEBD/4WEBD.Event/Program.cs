@@ -2,6 +2,7 @@ using System.Reflection;
 using _4WEBD.Event.Data;
 using _4WEBD.Identity.Shared.ExtensionMethods;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -79,7 +80,11 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Uploads/Images")),
+    RequestPath = "/Event/Images"
+});
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

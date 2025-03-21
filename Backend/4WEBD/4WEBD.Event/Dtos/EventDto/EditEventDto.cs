@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _4WEBD.Event.Dtos.EventDto;
 
-public class AddEventDto
+public class EditEventDto
 {
     [Required(ErrorMessage = "Le titre est obligatoire.")]
     public string Title { get; set; }
@@ -14,5 +14,5 @@ public class AddEventDto
     [Required(ErrorMessage = "La localisation est obligatoire.")]
     public string Location { get; set; }
     [Required(ErrorMessage = "L'image est obligatoire.")]
-    public string Image { get; set; }
+    public IFormFile? Image { get; set; }
 }

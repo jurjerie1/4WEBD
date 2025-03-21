@@ -1,3 +1,4 @@
+H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\bin\Debug\net8.0\4WEBD.Identity.Shared.dll.config
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\bin\Debug\net8.0\4WEBD.Identity.Shared.deps.json
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\bin\Debug\net8.0\4WEBD.Identity.Shared.runtimeconfig.json
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\bin\Debug\net8.0\4WEBD.Identity.Shared.dll
@@ -13,4 +14,3 @@ H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\obj\Debug\net8.0\refint\4WEBD.Ident
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\obj\Debug\net8.0\4WEBD.Identity.Shared.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\obj\Debug\net8.0\4WEBD.Identity.Shared.genruntimeconfig.cache
 H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\obj\Debug\net8.0\ref\4WEBD.Identity.Shared.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.Identity.Shared\bin\Debug\net8.0\4WEBD.Identity.Shared.dll.config

@@ -12,11 +12,8 @@ public class RegisterDTO
     [EmailAddress(ErrorMessage = "L'eamil est invalide.")]
 
     public string Email { get; set; }
-    [Required]
+    [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
     public string Password { get; set; }
-    [Required]
-    [Compare("Password", ErrorMessage = "Les mots de passe ne correspondent pas.")]
-    public string PasswordConfirmation { get; set; }
     [Required]
     [MinLength(4, ErrorMessage = "Le nom d'utilisateur doit contenir au moins 4 caractères.")]
     public string UserName { get; set; }

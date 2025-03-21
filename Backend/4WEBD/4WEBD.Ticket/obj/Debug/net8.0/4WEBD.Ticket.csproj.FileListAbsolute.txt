@@ -17,6 +17,7 @@ H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.AssemblyInfo.c
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.csproj.CoreCompileInputs.cache
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.MvcApplicationPartsAssemblyInfo.cs
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.MvcApplicationPartsAssemblyInfo.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.sourcelink.json
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\scopedcss\bundle\4WEBD.Ticket.styles.css
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets.build.json
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets.development.json
@@ -27,7 +28,6 @@ H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets\msbuild.bui
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.4WEBD.Ticket.props
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.4WEBD.Ticket.props
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets.pack.json
-H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ti.A99AC0F4.Up2Date
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\4WEBD.Ticket.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.Ticket\obj\Debug\net8.0\refint\4WEBD.Ticket.dll

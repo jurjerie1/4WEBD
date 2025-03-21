@@ -18,6 +18,23 @@
       }
     },
     {
+      "UpstreamPathTemplate": "/api/Event/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "Event",
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "4webd_event",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
       "UpstreamPathTemplate": "/api/Authentification/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "Authentification",
@@ -33,6 +50,16 @@
   ],
   "SwaggerEndPoints": [
     {
+      "Key": "Authentification",
+      "Config": [
+        {
+          "Name": "4WEBD Authentification API",
+          "Version": "v1",
+          "Url": "http://4webd_auth:8080/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
       "Key": "User",
       "Config": [
         {
@@ -43,15 +70,16 @@
       ]
     },
     {
-      "Key": "Authentification",
+      "Key": "Event",
       "Config": [
         {
-          "Name": "4WEBD Authentification API",
+          "Name": "4WEBD Event API",
           "Version": "v1",
-          "Url": "http://4webd_auth:8080/swagger/v1/swagger.json"
+          "Url": "http://4webd_event:8080/swagger/v1/swagger.json"
         }
       ]
     }
+    
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5001"

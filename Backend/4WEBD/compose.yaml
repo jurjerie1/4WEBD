@@ -7,7 +7,7 @@ services:
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_MULTIPLE_DATABASES=user_db
+      - POSTGRES_MULTIPLE_DATABASES=user_db,event_db
     networks:
       - 4WEBD_network
     ports:
@@ -68,6 +68,22 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ConnectionStrings__4WEBD_USER_DB=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=user_db
+      - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
+      - Jwt__Key=${JWT_KEY}
+    depends_on:
+      - 4WEBD_USER
+
+  4WEBD_EVENT:
+    image: 4webd_event
+    build:
+      context: .
+      dockerfile: 4WEBD.Authentification\Dockerfile
+    networks:
+      - 4WEBD_network
+      - 4WEBD_notification_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__4webd_event=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=event_db
       - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
       - Jwt__Key=${JWT_KEY}
     depends_on:

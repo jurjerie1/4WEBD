@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "H:\\4WEBD\\Backend\\4WEBD\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1D104826-663F-4889-8C4F-72D7CA834752}|4WEBD.Ticket\\4WEBD.Ticket.csproj|h:\\4webd\\backend\\4webd\\4webd.ticket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D104826-663F-4889-8C4F-72D7CA834752}|4WEBD.Ticket\\4WEBD.Ticket.csproj|solutionrelative:4webd.ticket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}|4WEBD.Event\\4WEBD.Event.csproj|h:\\4webd\\backend\\4webd\\4webd.event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}|4WEBD.Event\\4WEBD.Event.csproj|solutionrelative:4webd.event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,12 +23,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Ticket\\Program.cs",
+              "RelativeDocumentMoniker": "4WEBD.Ticket\\Program.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Ticket\\Program.cs",
+              "RelativeToolTip": "4WEBD.Ticket\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T17:42:06.626Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "EventController.cs",
               "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Event\\Controllers\\EventController.cs",
               "RelativeDocumentMoniker": "4WEBD.Event\\Controllers\\EventController.cs",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Event\\Controllers\\EventController.cs*",
-              "RelativeToolTip": "4WEBD.Event\\Controllers\\EventController.cs*",
-              "ViewState": "AgIAADQAAAAAAAAAAAAgwFkAAAAxAAAAAAAAAA==",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Event\\Controllers\\EventController.cs",
+              "RelativeToolTip": "4WEBD.Event\\Controllers\\EventController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-22T16:34:06.337Z",
               "EditorCaption": ""

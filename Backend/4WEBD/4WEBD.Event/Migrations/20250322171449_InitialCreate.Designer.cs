@@ -12,8 +12,8 @@ using _4WEBD.Event.Data;
 namespace _4WEBD.Event.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20250321170950_InitialCreate2")]
-    partial class InitialCreate2
+    [Migration("20250322171449_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,9 @@ namespace _4WEBD.Event.Migrations
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("NumberOfPlaces")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .IsRequired()

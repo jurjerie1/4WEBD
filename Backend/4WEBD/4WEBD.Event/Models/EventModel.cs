@@ -10,6 +10,7 @@ public class EventModel
     public DateTime Date { get; set; }
     public string Location { get; set; }
     public string Image { get; set; }
+    public int NumberOfPlaces { get; set; }
 
     #region Constructor
     public EventModel()

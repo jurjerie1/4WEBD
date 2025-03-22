@@ -50,12 +50,7 @@ builder.Services.AddDbContext<EventContext>(options =>
         builder.Configuration.GetConnectionString("4webd_event")
     )
 );
-builder.Services.AddDbContext<_4WEBD.Identity.Shared.Data.IdentityContext>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("4webd_identity") // Utilisez la même chaîne que pour EventContext si c'est la même base de données
-    )
-);
-builder.Services.AddCustomizedIdentity();
+
 builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();

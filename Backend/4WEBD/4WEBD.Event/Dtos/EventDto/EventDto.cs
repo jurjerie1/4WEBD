@@ -12,6 +12,8 @@ public class EventDto
     public DateTime Date { get; set; }
     public string Location { get; set; }
     public string Image { get; set; }
+    public int NumberOfPlaces {get; set;}
+    public int NumberOfPlacesRemaining {get; set;}
     
     #region Constructor
     public EventDto(EventModel eventModel)
@@ -22,6 +24,8 @@ public class EventDto
         Date = eventModel.Date;
         Location = eventModel.Location;
         Image = "/Event/Images/"+eventModel.Image;
+        NumberOfPlaces = eventModel.NumberOfPlaces;
+        NumberOfPlacesRemaining = eventModel.NumberOfPlaces;
     }
     #endregion
 }

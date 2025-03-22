@@ -1,7 +1,7 @@
 {
   "Routes": [
     {
-      "UpstreamPathTemplate": "/api/User/{everything}",
+      "UpstreamPathTemplate": "/api/UserService/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "User",
       "DownstreamPathTemplate": "/{everything}",
@@ -18,7 +18,7 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/api/Event/{everything}",
+      "UpstreamPathTemplate": "/api/EventService/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "Event",
       "DownstreamPathTemplate": "/{everything}",
@@ -35,7 +35,7 @@
       }
     },
     {
-      "UpstreamPathTemplate": "/api/Authentification/{everything}",
+      "UpstreamPathTemplate": "/api/AuthentificationService/{everything}",
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "SwaggerKey": "Authentification",
       "DownstreamPathTemplate": "/{everything}",

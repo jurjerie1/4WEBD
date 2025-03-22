@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -79,7 +80,12 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
     }
 }
+var uploadsPath = Path.Combine(builder.Environment.ContentRootPath, "Uploads/Images");
 
+if (!Directory.Exists(uploadsPath))
+{
+    Directory.CreateDirectory(uploadsPath); 
+}
 app.UseStaticFiles(new StaticFileOptions
 {
     FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Uploads/Images")),

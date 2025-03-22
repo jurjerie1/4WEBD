@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _4WEBD.Event.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]s")]
     [ApiController]
     public class EventController(EventContext context, IConfiguration configuration) : ControllerBase
     {

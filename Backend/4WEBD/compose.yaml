@@ -77,7 +77,7 @@ services:
     image: 4webd_event
     build:
       context: .
-      dockerfile: 4WEBD.Authentification\Dockerfile
+      dockerfile: 4WEBD.Event\Dockerfile
     networks:
       - 4WEBD_network
       - 4WEBD_notification_network

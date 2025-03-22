@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.User")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1286f1b50b248c4e37a5d9bf0934df55cb209d3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+729307a53e0b432d242c7305786f4803e6ae14b0")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.User")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.User")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

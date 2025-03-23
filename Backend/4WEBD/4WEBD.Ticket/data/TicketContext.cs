@@ -33,4 +33,5 @@ public class TicketContext : DbContext
     }
 
     public DbSet<TicketModel> Tickets { get; set; }
+    public DbSet<ConfirmationTicket> ConfirmationTickets { get; set; }
 }

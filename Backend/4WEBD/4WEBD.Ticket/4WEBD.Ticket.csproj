@@ -7,9 +7,13 @@
     <RootNamespace>_4WEBD.Ticket</RootNamespace>
     <UserSecretsId>c7122ac0-0fce-4d88-b21b-4d483538687f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.3.7" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -21,12 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\4WEBD.Identity.Shared\4WEBD.Identity.Shared.csproj" />
+    <ProjectReference Include="..\4WEBD.SharedClasses\4WEBD.SharedClasses.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\4WEBD.Identity.Shared\4WEBD.Identity.Shared.csproj" />
-    <ProjectReference Include="..\4WEBD.SharedClasses\4WEBD.SharedClasses.csproj" />
+    <Folder Include="data\Consumers\" />
   </ItemGroup>
 
 </Project>

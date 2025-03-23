@@ -4,6 +4,13 @@
         <name>4WEBD.Event</name>
     </assembly>
     <members>
+        <member name="M:_4WEBD.Event.Controllers.EventController.GetEventDto(_4WEBD.Event.Models.EventModel)">
+            <summary>
+            Permet de creer remplir un EventDto
+            </summary>
+            <param name="eventModel"></param>
+            <returns></returns>
+        </member>
         <member name="M:_4WEBD.Event.Controllers.EventController.Create(_4WEBD.Event.Dtos.EventDto.EditEventDto)">
             <summary>
             Permet de creer un evenement
@@ -35,6 +42,29 @@
             <param name="location">Rechercher par ville</param>
             <param name="title">Rechercher par titre</param>
             <param name="date">Rechercher par date</param>
+        </member>
+        <member name="T:_4WEBD.Event.Data.Consumers.EventConsumer">
+            <summary>
+            Event consumer class
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:_4WEBD.Event.Data.Consumers.EventConsumer.#ctor(_4WEBD.Event.Data.EventContext,Microsoft.Extensions.Logging.ILogger{_4WEBD.Event.Data.Consumers.EventConsumer},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Event consumer class
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:_4WEBD.Event.Data.Consumers.EventConsumer.Consume(MassTransit.ConsumeContext{_4WEBD.SharedClasses.Event.GetEventInfo})">
+            <summary>
+            Consume method
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
         </member>
         <member name="T:_4WEBD.Event.Migrations.InitialCreate">
             <inheritdoc />

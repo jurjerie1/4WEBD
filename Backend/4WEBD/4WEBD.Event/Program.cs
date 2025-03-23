@@ -1,6 +1,8 @@
 using System.Reflection;
 using _4WEBD.Event.Data;
+using _4WEBD.Event.Data.Consumers;
 using _4WEBD.Identity.Shared.ExtensionMethods;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
@@ -53,6 +55,23 @@ builder.Services.AddDbContext<EventContext>(options =>
 
 builder.Services.AddCustomJwtAuthentication();
 
+builder.Services.AddScoped<EventConsumer>();
+builder.Services.AddMassTransit(x =>
+{
+    x.AddConsumer<EventConsumer>();
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RABBITMQ_CONNECTIONSTRING"]);
+        cfg.ConfigureEndpoints(context);
+        cfg.ReceiveEndpoint("getEventInfo-queue", e =>
+        {
+            e.ConfigureConsumer<EventConsumer>(context);
+        });
+    });
+
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -79,7 +98,7 @@ var uploadsPath = Path.Combine(builder.Environment.ContentRootPath, "Uploads/Ima
 
 if (!Directory.Exists(uploadsPath))
 {
-    Directory.CreateDirectory(uploadsPath); 
+    Directory.CreateDirectory(uploadsPath);
 }
 app.UseStaticFiles(new StaticFileOptions
 {

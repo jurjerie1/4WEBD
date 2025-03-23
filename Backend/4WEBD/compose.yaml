@@ -32,8 +32,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - IdentityUrl=http://4webd_auth:8080
       - Jwt__Key=${JWT_KEY}
-
-
     depends_on:
       - 4WEBD_USER
 
@@ -84,11 +82,27 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
       - ConnectionStrings__4webd_event=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=event_db
-      - ConnectionStrings__4webd_identity=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=user_db
       - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
       - Jwt__Key=${JWT_KEY}
     depends_on:
       - 4WEBD_USER
+
+  4WEBD_TICKET:
+    image: 4webd_ticket
+    build:
+      context: .
+      dockerfile: 4WEBD.Ticket\Dockerfile
+    networks:
+      - 4WEBD_network
+      - 4WEBD_notification_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
+      - ConnectionStrings__4webd_ticket=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=ticket_db
+      - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
+      - Jwt__Key=${JWT_KEY}
+    depends_on:
+      - 4WEBD_DB
+
   4WEBD_RabbitMQ:
     image: rabbitmq:4.0-management
     environment:
@@ -118,6 +132,15 @@ services:
       - 4WEBD_notification_network
     depends_on:
       - 4WEBD_RabbitMQ
+  4WEBD_MailHog:
+    image: mailhog/mailhog
+    logging:
+      driver: "none"
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      - 4WEBD_notification_network
 
 networks:
   4WEBD_network:

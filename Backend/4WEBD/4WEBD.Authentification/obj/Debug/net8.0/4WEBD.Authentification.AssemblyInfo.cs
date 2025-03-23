@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.Authentification")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdb5c03de54fcb6f257d7cf5f69d567f5f6054d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be0b65036c9a8594a765ea36587a335fa1b30f51")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.Authentification")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.Authentification")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

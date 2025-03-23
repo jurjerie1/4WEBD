@@ -1,6 +1,7 @@
 using System.Reflection;
 using _4WEBD.Identity.Shared.ExtensionMethods;
 using _4WEBD.Ticket.data;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -49,6 +50,15 @@ builder.Services.AddDbContext<TicketContext>(options =>
     )
 );
 builder.Services.AddCustomJwtAuthentication();
+
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RABBITMQ_CONNECTIONSTRING"]);
+        cfg.ConfigureEndpoints(context);
+    });
+});
 
 var app = builder.Build();
 

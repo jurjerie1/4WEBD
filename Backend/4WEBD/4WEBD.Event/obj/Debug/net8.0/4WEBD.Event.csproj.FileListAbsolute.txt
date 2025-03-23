@@ -149,3 +149,9 @@ H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Wo
 H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\MassTransit.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\MassTransit.Abstractions.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\RabbitMQ.Client.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\4WEBD.SharedClasses.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.Event\bin\Debug\net8.0\4WEBD.SharedClasses.pdb

@@ -2,6 +2,8 @@ using System.Net.Http.Headers;
 using _4WEBD.Event.Data;
 using _4WEBD.Event.Dtos.EventDto;
 using _4WEBD.Event.Models;
+using _4WEBD.SharedClasses.Dtos.EventDto;
+using MassTransit.Futures.Contracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +23,24 @@ namespace _4WEBD.Event.Controllers
 
         #endregion
 
+        #region Private Methods
+        /// <summary>
+        /// Permet de creer remplir un EventDto
+        /// </summary>
+        /// <param name="eventModel"></param>
+        /// <returns></returns>
+        private EventDto GetEventDto(EventModel eventModel)
+        {
+            return new EventDto()
+            {
+                Id = eventModel.Id,
+                Title = eventModel.Title,
+                Description = eventModel.Description,
+                Date = eventModel.Date,
+                NumberOfPlaces = eventModel.NumberOfPlaces,
+            };
+        }
+        #endregion
 
         /// <summary>
         /// Permet de creer un evenement
@@ -82,7 +102,7 @@ namespace _4WEBD.Event.Controllers
 
             await _context.SaveChangesAsync();
 
-            return Ok(new EventDto(eventModel));
+            return Ok(GetEventDto(eventModel));
         }
 
         /// <summary>
@@ -148,7 +168,8 @@ namespace _4WEBD.Event.Controllers
 
             _context.Events.Update(eventModel);
             await _context.SaveChangesAsync();
-            return Ok(new EventDto(eventModel));
+            return Ok(GetEventDto(eventModel));
+
         }
 
         /// <summary>
@@ -163,12 +184,13 @@ namespace _4WEBD.Event.Controllers
 
         public async Task<IActionResult> Get(Guid id)
         {
-            var eventModel = await _context.FindAsync<EventModel>(id);
+            var eventModel = await _context.Events.FirstOrDefaultAsync(x=>x.Id == id);
             if (eventModel == null)
             {
                 return NotFound();
             }
-            return Ok(new EventDto(eventModel));
+            return Ok(GetEventDto(eventModel));
+            
         }
 
         /// <summary>
@@ -203,7 +225,7 @@ namespace _4WEBD.Event.Controllers
             }
             var events = await query.OrderByDescending(x => x.Date).Skip(pageSkip).Take(pageSize).ToListAsync();
 
-            return Ok(events.Select(e => new EventDto(e)));
+            return Ok(events.Select(e => GetEventDto(e)));
         }
     }
 }

@@ -20,8 +20,16 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[H:/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/Views/Emails/CancelledTicketTemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXENhbmNlbGxlZFRpY2tldFRlbXBsYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [H:/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/Views/Emails/ConfirmeEmailTemplate.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXENvbmZpcm1lRW1haWxUZW1wbGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[H:/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/Views/Emails/ConfirmTicketTemplate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxzXENvbmZpcm1UaWNrZXRUZW1wbGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [H:/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/Views/Emails/Layout/LayoutEmail.cshtml]

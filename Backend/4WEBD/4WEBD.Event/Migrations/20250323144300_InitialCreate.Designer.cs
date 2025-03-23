@@ -12,7 +12,7 @@ using _4WEBD.Event.Data;
 namespace _4WEBD.Event.Migrations
 {
     [DbContext(typeof(EventContext))]
-    [Migration("20250322171449_InitialCreate")]
+    [Migration("20250323144300_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

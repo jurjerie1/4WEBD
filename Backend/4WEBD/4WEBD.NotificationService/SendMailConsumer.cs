@@ -44,6 +44,47 @@ public class SendMailConsumer : IConsumer<SendMailMessage>
             }
             await _emailService.SendEmailAsync(message.To, "Bienvenue chez 4WEBD  - Confirmation de votre compte", html);
         }
+
+        if(message.TemplateId == TemplateId.ConfirmTicketTemplate)
+        {
+            var html = "";
+            string url = _configuration["ApplicationFrontUrl"] + $"{message.Url}";
+            var autreInfo = message.AutreInfo.Split(";");
+            try
+            {
+                html = await RazorTemplateEngine.RenderAsync("Emails/ConfirmTicketTemplate",
+                    new ConfirmTicketTemplateModel() { UserName = message.UserName, Url = url, EventName = autreInfo[0], EventDate = autreInfo[1], NumberOfPlaces = autreInfo[2] });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Détails complets de l'erreur: {ex.ToString()}");
+
+                var files = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views", "Emails"));
+                _logger.LogInformation($"Fichiers trouvés : {string.Join(", ", files)}");
+                throw;
+            }
+            await _emailService.SendEmailAsync(message.To, "4WEBD : Confirmation de votre réservation", html);
+        }
+
+        if (message.TemplateId == TemplateId.CancelledTicketTemplate)
+        {
+            var html = "";
+            string url = _configuration["ApplicationFrontUrl"] + $"{message.Url}";
+            try
+            {
+                html = await RazorTemplateEngine.RenderAsync("Emails/CancelledTicketTemplate",
+                    new CancelledTicketTemplateModel() { UserName = message.UserName, Url = url, EventName = message.UserName, EventDate = message.UserName });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Détails complets de l'erreur: {ex.ToString()}");
+
+                var files = Directory.GetFiles(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Views", "Emails"));
+                _logger.LogInformation($"Fichiers trouvés : {string.Join(", ", files)}");
+                throw;
+            }
+            await _emailService.SendEmailAsync(message.To, "4WEBD : Annulation de votre réservation", html);
+        }
         await Task.CompletedTask;
     }
 }

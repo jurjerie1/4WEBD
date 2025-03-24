@@ -78,12 +78,17 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:_4WEBD.User.Data.Consumers.UserConsumer.Consume(MassTransit.ConsumeContext{_4WEBD.SharedClasses.GetUserInfo})">
-            <summary>
-            Consume method
-            </summary>
-            <param name="context"></param>
-            <returns></returns>
+        <member name="T:_4WEBD.User.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.User.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
     </members>
 </doc>

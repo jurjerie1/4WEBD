@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.Gateways")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be0b65036c9a8594a765ea36587a335fa1b30f51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b42ee3ff34f802a10d2c6ae7195d3fc23ebf8c93")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.Gateways")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.Gateways")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

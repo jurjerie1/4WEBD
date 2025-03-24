@@ -6,7 +6,6 @@ using _4WEBD.Identity.Shared.ExtensionMethods;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MassTransit;
-using _4WEBD.User.Data.Consumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,19 +47,13 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddScoped<UserConsumer>();
 builder.Services.AddMassTransit(x =>
 {
-    x.AddConsumer<UserConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(builder.Configuration["RABBITMQ_CONNECTIONSTRING"]);
         cfg.ConfigureEndpoints(context);
-        cfg.ReceiveEndpoint("getEventInfo-queue", e =>
-        {
-            e.ConfigureConsumer<UserConsumer>(context);
-        });
     });
 
 });

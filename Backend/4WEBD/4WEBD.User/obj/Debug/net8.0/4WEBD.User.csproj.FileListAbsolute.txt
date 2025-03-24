@@ -150,3 +150,9 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.xml
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.genruntimeconfig.cache
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\ref\4WEBD.User.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.Abstractions.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\RabbitMQ.Client.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.pdb

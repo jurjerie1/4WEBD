@@ -38,6 +38,7 @@ namespace _4WEBD.Event.Controllers
                 Description = eventModel.Description,
                 Date = eventModel.Date,
                 NumberOfPlaces = eventModel.NumberOfPlaces,
+                Image = "/Event/Images/"+eventModel.Image,
             };
         }
         #endregion

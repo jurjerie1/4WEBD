@@ -1,9 +1,3 @@
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.csproj.AssemblyReference.cache
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.GeneratedMSBuildEditorConfig.editorconfig
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.AssemblyInfoInputs.cache
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.AssemblyInfo.cs
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.csproj.CoreCompileInputs.cache
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.sourcelink.json
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\4WEBD.NotificationService.Razor.Template.staticwebassets.endpoints.json
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\appsettings.Development.json
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\appsettings.json
@@ -343,6 +337,12 @@ H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\4WEBD.Notifica
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\4WEBD.SharedClasses.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\4WEBD.NotificationService.Razor.Template.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\bin\Debug\net8.0\4WEBD.SharedClasses.pdb
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.csproj.AssemblyReference.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.GeneratedMSBuildEditorConfig.editorconfig
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.AssemblyInfoInputs.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.AssemblyInfo.cs
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.csproj.CoreCompileInputs.cache
+H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.sourcelink.json
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.No.273C0F9D.Up2Date
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\4WEBD.NotificationService.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService\obj\Debug\net8.0\refint\4WEBD.NotificationService.dll

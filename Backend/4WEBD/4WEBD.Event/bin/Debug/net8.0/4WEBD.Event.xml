@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>4WEBD.Event</name>
+    </assembly>
+    <members>
+        <member name="M:_4WEBD.Event.Controllers.EventController.GetEventDto(_4WEBD.Event.Models.EventModel)">
+            <summary>
+            Permet de creer remplir un EventDto
+            </summary>
+            <param name="eventModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.Event.Controllers.EventController.Create(_4WEBD.Event.Dtos.EventDto.EditEventDto)">
+            <summary>
+            Permet de creer un evenement
+            </summary>
+            <param name="eventDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.Event.Controllers.EventController.Update(System.Guid,_4WEBD.Event.Dtos.EventDto.EditEventDto)">
+            <summary>
+            Permet de modifier un évenement
+            </summary>
+            <param name="id"></param>
+            <param name="editEventDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.Event.Controllers.EventController.Get(System.Guid)">
+            <summary>
+            Permet de recuperer un evenement
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:_4WEBD.Event.Controllers.EventController.GetAll(System.Int32,System.Int32,System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Permet de recuperer tous les evenements
+            </summary>
+            <param name="page">La page actuel (0 par default)</param>
+            <param name="pageSize">La taille de la page (50 par default)</param>
+            <param name="location">Rechercher par ville</param>
+            <param name="title">Rechercher par titre</param>
+            <param name="date">Rechercher par date</param>
+        </member>
+        <member name="T:_4WEBD.Event.Data.Consumers.EventConsumer">
+            <summary>
+            Event consumer class
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:_4WEBD.Event.Data.Consumers.EventConsumer.#ctor(_4WEBD.Event.Data.EventContext,Microsoft.Extensions.Logging.ILogger{_4WEBD.Event.Data.Consumers.EventConsumer},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Event consumer class
+            </summary>
+            <param name="context"></param>
+            <param name="logger"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:_4WEBD.Event.Data.Consumers.EventConsumer.Consume(MassTransit.ConsumeContext{_4WEBD.SharedClasses.Event.GetEventInfo})">
+            <summary>
+            Consume method
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:_4WEBD.Event.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:_4WEBD.Event.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

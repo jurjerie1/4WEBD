@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "H:\\4WEBD\\Backend\\4WEBD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA5D2C53-FAB7-455D-B1E7-237A3BC6E9DA}|4WEBD.NotificationService\\4WEBD.NotificationService.csproj|h:\\4webd\\backend\\4webd\\4webd.notificationservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{CA5D2C53-FAB7-455D-B1E7-237A3BC6E9DA}|4WEBD.NotificationService\\4WEBD.NotificationService.csproj|solutionrelative:4webd.notificationservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{1D104826-663F-4889-8C4F-72D7CA834752}|4WEBD.Ticket\\4WEBD.Ticket.csproj|h:\\4webd\\backend\\4webd\\4webd.ticket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D104826-663F-4889-8C4F-72D7CA834752}|4WEBD.Ticket\\4WEBD.Ticket.csproj|solutionrelative:4webd.ticket\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|h:\\4webd\\backend\\4webd\\4webd.user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B7065B5-E60B-45C2-BA5D-3C1212BD041C}|4WEBD.User\\4WEBD.User.csproj|solutionrelative:4webd.user\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}|4WEBD.Event\\4WEBD.Event.csproj|h:\\4webd\\backend\\4webd\\4webd.event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA925A4-BC18-4CC4-8D01-DB6DC1332220}|4WEBD.Event\\4WEBD.Event.csproj|solutionrelative:4webd.event\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\appsettings.json",
-              "RelativeDocumentMoniker": "4WEBD.NotificationService\\appsettings.json",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\appsettings.json",
-              "RelativeToolTip": "4WEBD.NotificationService\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-03-16T19:17:24.662Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Ticket\\Program.cs",
+              "RelativeDocumentMoniker": "4WEBD.Ticket\\Program.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Ticket\\Program.cs",
+              "RelativeToolTip": "4WEBD.Ticket\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T17:42:06.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "4WEBD.User\\Controllers\\UserController.cs",
-              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.User\\Controllers\\UserController.cs",
-              "RelativeToolTip": "4WEBD.User\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAkwLIAAAAQAAAAAAAAAA==",
+              "Title": "EventController.cs",
+              "DocumentMoniker": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Event\\Controllers\\EventController.cs",
+              "RelativeDocumentMoniker": "4WEBD.Event\\Controllers\\EventController.cs",
+              "ToolTip": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.Event\\Controllers\\EventController.cs",
+              "RelativeToolTip": "4WEBD.Event\\Controllers\\EventController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T17:31:47.383Z",
+              "WhenOpened": "2025-03-22T16:34:06.337Z",
               "EditorCaption": ""
             }
           ]

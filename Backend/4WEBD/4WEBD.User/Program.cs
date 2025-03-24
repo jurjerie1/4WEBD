@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using _4WEBD.Identity.Shared.ExtensionMethods;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +45,17 @@ builder.Services.AddSwaggerGen(options =>
             new string[] { }
         }
     });
+});
+
+builder.Services.AddMassTransit(x =>
+{
+
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RABBITMQ_CONNECTIONSTRING"]);
+        cfg.ConfigureEndpoints(context);
+    });
+
 });
 
 builder.Services.AddDbContext<IdentityContext>(options =>

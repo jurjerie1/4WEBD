@@ -20,7 +20,6 @@ H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.4WEBD.NotificationService.Razor.Template.props
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.4WEBD.NotificationService.Razor.Template.props
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\staticwebassets.pack.json
-H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\4WEBD.NotificationService.Razor.Template.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\refint\4WEBD.NotificationService.Razor.Template.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.NotificationService.Razor.Template\obj\Debug\net8.0\4WEBD.NotificationService.Razor.Template.pdb

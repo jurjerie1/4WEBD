@@ -7,11 +7,30 @@
     <RootNamespace>_4WEBD.Ticket</RootNamespace>
     <UserSecretsId>c7122ac0-0fce-4d88-b21b-4d483538687f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.3.7" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.14" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.14">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.11" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\4WEBD.Identity.Shared\4WEBD.Identity.Shared.csproj" />
+    <ProjectReference Include="..\4WEBD.SharedClasses\4WEBD.SharedClasses.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="data\Consumers\" />
   </ItemGroup>
 
 </Project>

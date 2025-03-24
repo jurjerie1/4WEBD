@@ -45,12 +45,13 @@ namespace _4WEBD.Identity.Shared.Services
             var key = Encoding.UTF8.GetBytes(configurationRoot["Jwt:Key"]);
 
             var claims = new List<Claim>
-    {
-        new Claim("Id", user.Id.ToString()),
-        new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        new Claim(JwtRegisteredClaimNames.Name, user.UserName),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-    };
+            {
+                new Claim("Id", user.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("Email", user.Email),
+                new Claim(JwtRegisteredClaimNames.Name, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            };
 
             // Add each role as a separate claim
             foreach (var role in roles)

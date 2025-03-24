@@ -8,6 +8,9 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.User.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.User.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.User.xml
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Humanizer.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.Abstractions.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
@@ -53,6 +56,7 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Microsoft.OpenApi.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Mono.TextTemplating.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Npgsql.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\RabbitMQ.Client.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -123,8 +127,10 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysi
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.Identity.Shared.dll
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.dll
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.Identity.Shared.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.Identity.Shared.dll.config
+H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.csproj.AssemblyReference.cache
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.GeneratedMSBuildEditorConfig.editorconfig
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.AssemblyInfoInputs.cache
@@ -150,9 +156,3 @@ H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.xml
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.pdb
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\4WEBD.User.genruntimeconfig.cache
 H:\4WEBD\Backend\4WEBD\4WEBD.User\obj\Debug\net8.0\ref\4WEBD.User.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.Abstractions.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\MassTransit.RabbitMqTransport.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\RabbitMQ.Client.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.dll
-H:\4WEBD\Backend\4WEBD\4WEBD.User\bin\Debug\net8.0\4WEBD.SharedClasses.pdb

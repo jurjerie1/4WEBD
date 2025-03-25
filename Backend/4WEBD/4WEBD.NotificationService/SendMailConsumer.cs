@@ -28,7 +28,7 @@ public class SendMailConsumer : IConsumer<SendMailMessage>
         if (message.TemplateId == TemplateId.ConfirmeEmailTemplate)
         {
             var html = "";
-            string url = _configuration["ApplicationFrontUrl"] + $"/ConfirmeEmail?UserId={message.UserId}&Token=" + message.Url;
+            string url = _configuration["ApplicationFrontUrl"] + $"confirm-email?userId={message.UserId}&code=" + message.Url;
             try
             {
                 html = await RazorTemplateEngine.RenderAsync("Emails/ConfirmeEmailTemplate",

@@ -9,6 +9,7 @@ export default function AccountPage() {
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState("reservations");
 
+
     useEffect(() => {
         if (!user) {
             navigate('/login');
@@ -23,13 +24,13 @@ export default function AccountPage() {
                     <div className="flex space-x-4">
                         <button
                             onClick={() => setActiveTab("reservations")}
-                            className={`px-4 py-2 rounded-md ${activeTab === "reservations" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+                            className={`px-4 py-2 rounded-md ${activeTab === "reservations" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700 cursor-pointer"} `}
                         >
                             Mes réservations
                         </button>
                         <button
                             onClick={() => setActiveTab("informations")}
-                            className={`px-4 py-2 rounded-md ${activeTab === "informations" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+                            className={`px-4 py-2 rounded-md ${activeTab === "informations" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700 cursor-pointer"} `}
                         >
                             Mes informations
                         </button>
@@ -41,7 +42,8 @@ export default function AccountPage() {
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {activeTab === "reservations" && (
-                    <AccountReservationInfo/>
+                    /*<AccountReservationInfo/>*/
+                    <p className="text-2xl font-bold mb-6">Mes Réservations</p>
                 )}
                 {activeTab === "informations" && (
                     <AccountUserInfo/>

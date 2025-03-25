@@ -7,6 +7,7 @@ import RegisterPage from "./components/register-page.jsx";
 import SearchPage from "./components/search-page.jsx";
 import AccountPage from "./components/account-page.jsx";
 import BookingTicketPage from "./components/booking-ticket-page.jsx";
+import ConfirmEmail from "./components/confirm-email.jsx";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/" element={<SearchPage/>}/>
                 <Route path="/account" element={<AccountPage/>}/>
                 <Route path="/booking/:id" element={<BookingTicketPage/>}/>
+                <Route path="/confirm-email" element={<ConfirmEmail/>}/>
 
             </Routes>
             </BrowserRouter>

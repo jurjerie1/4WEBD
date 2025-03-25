@@ -10,18 +10,21 @@ export default function LoginPage() {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
     const [password, setPassword] = useState("");
-    const [rememberMe, setRememberMe] = useState(false);
     const [errors, setErrors] = useState(null);
     const {login} = useAuth();
-    const apiUrl = import.meta.env.VITE_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors(null); // Réinitialiser les erreurs avant de soumettre le formulaire
 
-        axios.post(`${apiUrl}/users/login`, {email, password, rememberMe})
+        axios.post(`${apiUrl}/AuthentificationService/Authentifications/login`, { email, password })
             .then((response) => {
-                const {user, token} = response.data;
+                let user = {};
+                user.email=response.data.email;
+                user.role=response.data.role[0];
+                user.userName=response.data.userName;
+                const token = response.data.token;
                 login(user, token);
                 // Redirection vers la page d'accueil
                 navigate("/");
@@ -29,7 +32,7 @@ export default function LoginPage() {
             .catch((error) => {
                 console.error("Login error:", error);
                 if (error.response) {
-                    setErrors(error.response.data.error || "Une erreur est survenue.");
+                    setErrors(error.response.data || "Une erreur est survenue.");
                 } else {
                     setErrors("Une erreur est survenue. Veuillez réessayer.");
                 }
@@ -56,7 +59,7 @@ export default function LoginPage() {
                     </div>
                 )}
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <div className="rounded-md shadow-sm space-y-4">
+                    <div className="rounded-md space-y-4">
                         <div>
                             <label htmlFor="email-address" className="sr-only">
                                 Adresse email
@@ -103,22 +106,6 @@ export default function LoginPage() {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                            <input
-                                id="remember-me"
-                                name="remember-me"
-                                type="checkbox"
-                                className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                                checked={rememberMe}
-                                onChange={(e) => setRememberMe(e.target.checked)}
-                            />
-                            <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                Se souvenir de moi
-                            </label>
-                        </div>
-
-                    </div>
 
                     <div>
                         <button

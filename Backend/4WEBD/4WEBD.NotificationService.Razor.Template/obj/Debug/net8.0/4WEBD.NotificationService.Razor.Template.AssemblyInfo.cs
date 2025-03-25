@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("4WEBD.NotificationService.Razor.Template")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b280c09806fd3de8c39cade0a6ce0f44b9af914")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3112dd0c9ab7fcf81974fe207727792a00ea402a")]
 [assembly: System.Reflection.AssemblyProductAttribute("4WEBD.NotificationService.Razor.Template")]
 [assembly: System.Reflection.AssemblyTitleAttribute("4WEBD.NotificationService.Razor.Template")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

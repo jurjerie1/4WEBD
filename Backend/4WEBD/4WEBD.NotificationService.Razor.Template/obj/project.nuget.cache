@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3jK0qWKAGvo=",
+  "dgSpecHash": "XV4OIJ3jkmXkWmSNzBY6HqyJNpGLG7RPx9VgerXMdixqQoY2ifT7BEGHPgk3Hy/OAldT+PzxvGDi3XhUQ7B9hQ==",
   "success": true,
-  "projectFilePath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj",
+  "projectFilePath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jurje\\.nuget\\packages\\razor.templating.core\\2.1.0\\razor.templating.core.2.1.0.nupkg.sha512"
+    "/home/jurjerie/.nuget/packages/razor.templating.core/2.1.0/razor.templating.core.2.1.0.nupkg.sha512",
+    "/home/jurjerie/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
   ],
   "logs": []
 }

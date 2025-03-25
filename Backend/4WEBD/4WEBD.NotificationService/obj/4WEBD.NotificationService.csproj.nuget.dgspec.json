@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\4WEBD.NotificationService.csproj": {}
+    "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService/4WEBD.NotificationService.csproj": {}
   },
   "projects": {
-    "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj": {
+    "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj",
+        "projectUniqueName": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj",
         "projectName": "4WEBD.NotificationService.Razor.Template",
-        "projectPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj",
-        "packagesPath": "C:\\Users\\jurje\\.nuget\\packages\\",
-        "outputPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\obj\\",
+        "projectPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj",
+        "packagesPath": "/home/jurjerie/.nuget/packages/",
+        "outputPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jurje\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/jurjerie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -67,6 +54,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.14, 8.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -75,44 +68,37 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\4WEBD.NotificationService.csproj": {
+    "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService/4WEBD.NotificationService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\4WEBD.NotificationService.csproj",
+        "projectUniqueName": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService/4WEBD.NotificationService.csproj",
         "projectName": "4WEBD.NotificationService",
-        "projectPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\4WEBD.NotificationService.csproj",
-        "packagesPath": "C:\\Users\\jurje\\.nuget\\packages\\",
-        "outputPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService\\obj\\",
+        "projectPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService/4WEBD.NotificationService.csproj",
+        "packagesPath": "/home/jurjerie/.nuget/packages/",
+        "outputPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jurje\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/jurjerie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj": {
-                "projectPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.NotificationService.Razor.Template\\4WEBD.NotificationService.Razor.Template.csproj"
+              "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj": {
+                "projectPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.NotificationService.Razor.Template/4WEBD.NotificationService.Razor.Template.csproj"
               },
-              "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj": {
-                "projectPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj"
+              "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj": {
+                "projectPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj"
               }
             }
           }
@@ -121,13 +107,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -181,38 +161,37 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.14, 8.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj": {
+    "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj",
+        "projectUniqueName": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj",
         "projectName": "4WEBD.SharedClasses",
-        "projectPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj",
-        "packagesPath": "C:\\Users\\jurje\\.nuget\\packages\\",
-        "outputPath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\obj\\",
+        "projectPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj",
+        "packagesPath": "/home/jurjerie/.nuget/packages/",
+        "outputPath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jurje\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/jurjerie/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -225,13 +204,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -247,12 +220,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.14, 8.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.114/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

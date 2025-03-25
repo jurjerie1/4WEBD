@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "PIlUB3fAXlw=",
+  "dgSpecHash": "M/NuTQKUsgCNon9jXT0tTRgSniDnDuXzsWo3IbFU8uNyNL5tGB74xNmSFFvgit+bG4epW3l+qxhyLqEfHJoTXw==",
   "success": true,
-  "projectFilePath": "H:\\4WEBD\\Backend\\4WEBD\\4WEBD.SharedClasses\\4WEBD.SharedClasses.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/jurjerie/Documents/dev/4WEBD/Backend/4WEBD/4WEBD.SharedClasses/4WEBD.SharedClasses.csproj",
+  "expectedPackageFiles": [
+    "/home/jurjerie/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.14/microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

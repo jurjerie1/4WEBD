@@ -10,10 +10,9 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -29,7 +28,7 @@ builder.Services.AddSwaggerGen(options =>
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
         Description =
-            "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
+        "Enter 'Bearer' [space] and then your valid token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\"",
     });
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
@@ -54,12 +53,10 @@ builder.Services.AddDbContext<EventContext>(options =>
 );
 
 builder.Services.AddCustomJwtAuthentication();
-
 builder.Services.AddScoped<EventConsumer>();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<EventConsumer>();
-
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(builder.Configuration["RABBITMQ_CONNECTIONSTRING"]);
@@ -69,7 +66,6 @@ builder.Services.AddMassTransit(x =>
             e.ConfigureConsumer<EventConsumer>(context);
         });
     });
-
 });
 
 var app = builder.Build();
@@ -94,22 +90,42 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"An error occurred while migrating the database: {ex.Message}");
     }
 }
-var uploadsPath = Path.Combine(builder.Environment.ContentRootPath, "Uploads/Images");
 
+// Ensure uploads directory exists
+var uploadsPath = Path.Combine(app.Environment.ContentRootPath, "Uploads", "Images");
 if (!Directory.Exists(uploadsPath))
 {
     Directory.CreateDirectory(uploadsPath);
+    // Ensure directory has proper permissions
+    try
+    {
+        // Set permissions (works in Unix-based systems like in Docker)
+        if (!OperatingSystem.IsWindows())
+        {
+            // This doesn't do anything on Windows but works on Linux/Docker
+            var permissions = (UnixFileMode)Convert.ToInt32("777", 8); // equivalent to 777 in octal
+            File.SetUnixFileMode(uploadsPath, permissions);
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Warning: Could not set directory permissions: {ex.Message}");
+    }
 }
+
+// Configure static files middleware
+app.UseStaticFiles(); // Default static files (wwwroot)
+
+// Configure the images path for static file serving
 app.UseStaticFiles(new StaticFileOptions
 {
-    FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "Uploads/Images")),
+    FileProvider = new PhysicalFileProvider(uploadsPath),
     RequestPath = "/Event/Images"
 });
-app.UseHttpsRedirection();
 
+app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

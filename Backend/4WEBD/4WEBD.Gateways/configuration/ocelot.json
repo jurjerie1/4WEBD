@@ -2,7 +2,12 @@
   "Routes": [
     {
       "UpstreamPathTemplate": "/api/UserService/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "SwaggerKey": "User",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -19,7 +24,12 @@
     },
     {
       "UpstreamPathTemplate": "/api/AuthentificationService/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "SwaggerKey": "Authentification",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -31,8 +41,29 @@
       ]
     },
     {
+      "UpstreamPathTemplate": "/api/EventService/Event/Images/{imageFile}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "DownstreamPathTemplate": "/Event/Images/{imageFile}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "4webd_event",
+          "Port": 8080
+        }
+      ],
+      "Priority": 1,
+      "AuthenticationOptions": null
+    },
+    {
       "UpstreamPathTemplate": "/api/EventService/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "SwaggerKey": "Event",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -49,7 +80,12 @@
     },
     {
       "UpstreamPathTemplate": "/api/TicketService/{everything}",
-      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "UpstreamHttpMethod": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
       "SwaggerKey": "Ticket",
       "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
@@ -105,7 +141,7 @@
           "Url": "http://4webd_ticket:8080/swagger/v1/swagger.json"
         }
       ]
-    }    
+    }
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:5001"

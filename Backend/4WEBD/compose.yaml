@@ -23,7 +23,7 @@ services:
     image: 4webd_apigateway
     build:
       context: .
-      dockerfile: 4WEBD.Gateways\Dockerfile
+      dockerfile: 4WEBD.Gateways/Dockerfile
     networks:
       - 4WEBD_network
     ports:
@@ -39,7 +39,7 @@ services:
     image: 4webd_user
     build:
       context: .
-      dockerfile: 4WEBD.User\Dockerfile
+      dockerfile: 4WEBD.User/Dockerfile
     networks:
       - 4WEBD_network
       - 4WEBD_notification_network
@@ -58,7 +58,7 @@ services:
     image: 4webd_auth
     build:
       context: .
-      dockerfile: 4WEBD.Authentification\Dockerfile
+      dockerfile: 4WEBD.Authentification/Dockerfile
     networks:
       - 4WEBD_network
       - 4WEBD_notification_network
@@ -74,7 +74,7 @@ services:
     image: 4webd_event
     build:
       context: .
-      dockerfile: 4WEBD.Event\Dockerfile
+      dockerfile: 4WEBD.Event/Dockerfile
     networks:
       - 4WEBD_network
       - 4WEBD_notification_network
@@ -83,6 +83,8 @@ services:
       - ConnectionStrings__4webd_event=Host=4WEBD_DB;Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD};Database=event_db
       - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
       - Jwt__Key=${JWT_KEY}
+    volumes:
+      - ./event_uploads:/app/Uploads/Images
     depends_on:
       - 4WEBD_USER
 
@@ -90,7 +92,7 @@ services:
     image: 4webd_ticket
     build:
       context: .
-      dockerfile: 4WEBD.Ticket\Dockerfile
+      dockerfile: 4WEBD.Ticket/Dockerfile
     networks:
       - 4WEBD_network
       - 4WEBD_notification_network
@@ -149,4 +151,6 @@ networks:
 
 volumes:
   4WEBD_DB_data:
+    driver: local
+  event_uploads:
     driver: local

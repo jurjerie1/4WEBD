@@ -1,202 +1,185 @@
 "use client"
 import {useEffect, useState} from "react";
 import {
-    EuroIcon,
+    CalendarIcon,
     FileTextIcon,
-    HotelIcon,
     ImageIcon,
+    LoaderCircleIcon,
     MapPinIcon,
-    SearchIcon,
-    SettingsIcon,
-    StarIcon,
-    UsersIcon,
     PersonStandingIcon,
+    SearchIcon,
+    TicketIcon
 } from "lucide-react"
 import axios from "axios";
 import {useAuth} from "../hooks/useAuth.js";
 import {useNavigate} from "react-router-dom";
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5001/api";
 
 export default function AdminPage() {
     const {user, token} = useAuth();
     const navigate = useNavigate();
     const currentRole = user?.role;
+    const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState("users");
-    const [pseudo, setPseudo] = useState("")
-    const [email, setEmail] = useState("")
+    //Fields search events
+    const [title, setTitle] = useState("")
+    const [location, setLocation] = useState("")
+    const [date, setDate] = useState("")
+
     const [users, setUsers] = useState([]);
-    const [editedUsers, setEditedUsers] = useState({});
-    const [hotels, setHotels] = useState([]);
-    const [editedHotels, setEditedHotels] = useState({});
+    const [events, setEvents] = useState([]);
     const [successMessage, setSuccessMessage] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
-    const [hotelForm, setHotelForm] = useState({
-        name: "",
-        location: "",
-        price: 0,
-        description: "",
-        rating: 3,
-        picture: "",
-        amenities: [],
-        capacity: 1,
+    const [eventForm, setEventForm] = useState({
+        Title: "",
+        Description: "",
+        Date: "",
+        Location: "",
+        Image: "",
+        NumberOfPlaces: 0,
     })
 
-    const handleSearchUsers = (e) => {
-        e.preventDefault()
-        console.log("Searching users with:", {pseudo, email})
-        axios.get(`${apiUrl}/users/search`, {params: {pseudo, email}})
-            .then((response) => {
-                if (response.data.redirect) {
-                    navigate(response.data.redirect);
-                }
-                setUsers(response.data)
-            })
-            .catch((error) => {
-                console.error(error);
-                setErrorMessage("Erreur lors de la recherche des utilisateurs.");
-            });
-    }
 
-    const handleSearchHotels = (e) => {
+    const handleSearchEvents = (e) => {
         e.preventDefault()
-        console.log("Searching hotels with:", {name: pseudo})
-        axios.get(`${apiUrl}/hotels/search`, {params: {name: pseudo}})
+        //Construire la requête avec seulement les champs remplis
+        let params = {}
+        if (title) {
+            params.title = title
+        }
+        if (location) {
+            params.location = location
+        }
+        if (date) {
+            //Traduire en ISO
+            params.date = new Date(date).toISOString()
+        }
+        axios.get(`${apiUrl}/EventService/Events/getall`, {params, headers: {Authorization: `Bearer ${token}`}})
             .then((response) => {
-                setHotels(response.data)
+                setEvents(response.data)
             })
             .catch((error) => {
                 console.error(error);
                 console.log("error.response.status", error.response.status)
-                setErrorMessage("Erreur lors de la recherche des hôtels.");
+                setErrorMessage("Erreur lors de la recherche des évènements.");
             });
     }
 
-    const handleRoleChange = (userId, role) => {
-        setEditedUsers(prev => ({...prev, [userId]: {...prev[userId], role}}));
-    }
 
-    const handleFieldChange = (userId, field, value) => {
-        setEditedUsers(prev => ({...prev, [userId]: {...prev[userId], [field]: value}}));
-    }
+    const saveEventChanges = (eventId) => {
 
-    const handleHotelFieldChange = (hotelId, field, value) => {
-        setEditedHotels(prev => ({...prev, [hotelId]: {...prev[hotelId], [field]: value}}));
-    }
+        let updatedEvent = events.find(event => event.id === eventId);
+        //Supprimer l'id
+        delete updatedEvent.id;
+        console.log(updatedEvent);
 
-    const handleDeleteUser = (userId) => {
-        console.log("Deleting user:", userId)
-        axios.delete(`${apiUrl}/users/${userId}`, {headers: {Authorization: `Bearer ${token}`}})
-            .then(() => {
-                setUsers(users.filter(user => user.id !== userId))
-                setSuccessMessage("Utilisateur supprimé avec succès.");
-                setTimeout(() => setSuccessMessage(""), 3000);
-            })
-            .catch((error) => {
-                console.error(error);
-                setErrorMessage("Erreur lors de la suppression de l'utilisateur.");
-            });
-    }
-
-    const handleDeleteHotel = (hotelId) => {
-        console.log("Deleting hotel:", hotelId)
-        axios.delete(`${apiUrl}/hotels/${hotelId}`, {headers: {Authorization: `Bearer ${token}`}})
-            .then(() => {
-                setHotels(hotels.filter(hotel => hotel.id !== hotelId))
-                setSuccessMessage("Hôtel supprimé avec succès.");
-                setTimeout(() => setSuccessMessage(""), 3000);
-            })
-            .catch((error) => {
-                console.error(error);
-                setErrorMessage("Erreur lors de la suppression de l'hôtel.");
-            });
-    }
-
-    const saveUserChanges = (userId) => {
-        const updatedUser = editedUsers[userId];
-        if (updatedUser) {
-            axios.put(`${apiUrl}/users/${userId}`, updatedUser, {headers: {Authorization: `Bearer ${token}`}})
+        if (updatedEvent) {
+            axios.put(`${apiUrl}/EventService/Events/${eventId}`, updatedEvent, {headers: {Authorization: `Bearer ${token}`}})
                 .then(() => {
-                    setUsers(users.map(user => user.id === userId ? {...user, ...updatedUser} : user));
-                    setEditedUsers(prev => {
-                        const {[userId]: _, ...rest} = prev;
-                        return rest;
-                    });
-                    setSuccessMessage("Utilisateur mis à jour avec succès.");
+                    setEvents(events.map(event => event.id === eventId ? updatedEvent : event));
+                    setSuccessMessage("Evènement mis à jour avec succès.");
                     setTimeout(() => setSuccessMessage(""), 3000);
                 })
                 .catch((error) => {
                     console.error(error);
-                    setErrorMessage("Erreur lors de la mise à jour de l'utilisateur.");
+                    setErrorMessage("Erreur lors de la mise à jour de l'évènement");
                 });
         }
     }
-
-    const saveHotelChanges = (hotelId) => {
-        const updatedHotel = editedHotels[hotelId];
-        if (updatedHotel) {
-            axios.put(`${apiUrl}/hotels/${hotelId}`, updatedHotel, {headers: {Authorization: `Bearer ${token}`}})
-                .then(() => {
-                    setHotels(hotels.map(hotel => hotel.id === hotelId ? {...hotel, ...updatedHotel} : hotel));
-                    setEditedHotels(prev => {
-                        const {[hotelId]: _, ...rest} = prev;
-                        return rest;
-                    });
-                    setSuccessMessage("Hôtel mis à jour avec succès.");
-                    setTimeout(() => setSuccessMessage(""), 3000);
-                })
-                .catch((error) => {
-                    console.error(error);
-                    setErrorMessage("Erreur lors de la mise à jour de l'hôtel.");
-                });
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setEventForm({...eventForm, Image: file});
         }
-    }
+    };
+    const handleNumberOfPlacesChange = (event) => {
+        const value = parseInt(event.target.value, 10);
+        if (!isNaN(value)) {
+            setEventForm({...eventForm, NumberOfPlaces: value});
+        }
+    };
 
-    const createHotel = (hotel) => {
+
+    const createEvent = (eventForm) => {
         setErrorMessage("");
-        axios.post(`${apiUrl}/hotels/create`, hotel, {headers: {Authorization: `Bearer ${token}`}})
+        const formData = new FormData();
+        formData.append('Title', eventForm.Title);
+        formData.append('Description', eventForm.Description);
+        formData.append('Date', formatDate(eventForm.Date));
+        formData.append('Location', eventForm.Location);
+        formData.append('Image', eventForm.Image);
+        formData.append('NumberOfPlaces', eventForm.NumberOfPlaces);
+
+        axios.post(`${apiUrl}/EventService/Events/create`, formData, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'multipart/form-data'
+            }
+        })
             .then(() => {
-                setHotels([...hotels, hotel]);
-                setHotelForm({
-                    name: "",
-                    location: "",
-                    description: "",
-                    price: 0,
-                    rating: 3,
-                    picture: "",
-                    amenities: []
+                setEvents([...events, eventForm]);
+                setEventForm({
+                    Title: "",
+                    Description: "",
+                    Date: "",
+                    Location: "",
+                    Image: "",
+                    NumberOfPlaces: 0,
                 });
-                setSuccessMessage("Hôtel ajouté avec succès.");
+                setSuccessMessage("Événement ajouté avec succès.");
                 setTimeout(() => setSuccessMessage(""), 3000);
             })
             .catch((error) => {
-                if (error.response.data.error) {
-                    setErrorMessage(error.response.data.error);
+                if (error.response && error.response.data) {
+                    setErrorMessage(error.response.data);
+                } else {
+                    setErrorMessage("Erreur lors de la création de l'événement.");
                 }
+                console.log(error);
             });
-    }
+    };
+    const formatDate = (date) => {
+        const d = new Date(date);
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        const hours = String(d.getHours()).padStart(2, '0');
+        const minutes = String(d.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    };
+
 
     useEffect(() => {
         if (activeTab === "users") {
-            axios.get(`${apiUrl}/users/search`, {headers: {Authorization: `Bearer ${token}`}})
+            setLoading(true);
+            setEvents([]);
+            axios.get(`${apiUrl}/UserService/Users/GetAll`, {headers: {Authorization: `Bearer ${token}`}})
                 .then((response) => {
                     setUsers(response.data)
+                    setLoading(false);
+
                 })
                 .catch((error) => {
                     if (error.response.status === 401) {
                         navigate("/login");
                     }
                     console.error(error);
+                    setLoading(false);
                     setErrorMessage("Erreur lors du chargement des utilisateurs.");
                 });
-        } else if (activeTab === "hotels") {
-            axios.get(`${apiUrl}/hotels/search`, {headers: {Authorization: `Bearer ${token}`}})
+        } else if (activeTab === "events") {
+            setLoading(true);
+            setEvents([]);
+            axios.get(`${apiUrl}/EventService/Events/getall`, {headers: {Authorization: `Bearer ${token}`}})
                 .then((response) => {
-                    setHotels(response.data)
+                    setEvents(response.data)
+                    setLoading(false);
                 })
                 .catch((error) => {
                     console.error(error);
-                    setErrorMessage("Erreur lors du chargement des hôtels.");
+                    setLoading(false);
+                    setErrorMessage("Erreur lors du chargement des évènements.");
                 });
         }
     }, [activeTab]);
@@ -210,22 +193,22 @@ export default function AdminPage() {
                         <div className="flex space-x-4">
                             <button
                                 onClick={() => setActiveTab("users")}
-                                className={`px-4 py-2 rounded-md ${activeTab === "users" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+                                className={`px-4 py-2 rounded-md ${activeTab === "users" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700 cursor-pointer"}`}
                             >
                                 Utilisateurs
                             </button>
                             <button
-                                onClick={() => setActiveTab("hotels")}
-                                className={`px-4 py-2 rounded-md ${activeTab === "hotels" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+                                onClick={() => setActiveTab("events")}
+                                className={`px-4 py-2 rounded-md ${activeTab === "events" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700 cursor-pointer"}`}
                             >
-                                Hôtels
+                                Évènements
                             </button>
                         </div>
                         <button
-                            onClick={() => setActiveTab("add-hotel")}
-                            className={`px-4 py-2 rounded-md ${activeTab === "add-hotel" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700"}`}
+                            onClick={() => setActiveTab("add-event")}
+                            className={`px-4 py-2 rounded-md ${activeTab === "add-event" ? "bg-indigo-600 text-white" : "bg-gray-200 text-gray-700 cursor-pointer"}`}
                         >
-                            Ajouter un hôtel
+                            Ajouter un évènement
                         </button>
                     </div>
                 </div>
@@ -234,13 +217,13 @@ export default function AdminPage() {
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {activeTab === "users" && (
+                    {activeTab === "users" && !loading && (
                         <div className="lg:w-full">
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-2xl font-bold text-gray-900">Résultats de recherche</h2>
+                                <h2 className="text-2xl font-bold text-gray-900">Utilisateurs</h2>
                                 {currentRole !== 'administrator' && (
                                     <p className="text-sm text-gray-500">
-                                        Seuls les administrateurs ont le droit de modifier les informations.
+                                        Seuls les utilisateurs ont le droit de modifier leurs informations.
                                     </p>
                                 )}
                             </div>
@@ -260,133 +243,42 @@ export default function AdminPage() {
                                     <span className="block sm:inline">{errorMessage}</span>
                                 </div>
                             )}
-                            <div className="bg-white shadow-md py-6 mb-8">
-                                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                    <form onSubmit={handleSearchUsers}
-                                          className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                        <div className="relative">
-                                            <label htmlFor="pseudo" className="sr-only">
-                                                Pseudo
-                                            </label>
-                                            <div
-                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <UsersIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                            </div>
-                                            <input
-                                                id="pseudo"
-                                                name="pseudo"
-                                                type="text"
-                                                required
-                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Pseudo"
-                                                value={pseudo}
-                                                onChange={(e) => setPseudo(e.target.value)}
-                                            />
-                                        </div>
-
-                                        <div className="relative">
-                                            <label htmlFor="email" className="sr-only">
-                                                Email
-                                            </label>
-                                            <div
-                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <svg className="h-5 w-5 text-gray-400" fill="currentColor"
-                                                     viewBox="0 0 20 20">
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            </div>
-                                            <input
-                                                id="email"
-                                                name="email"
-                                                type="email"
-                                                required
-                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Email"
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                            />
-                                        </div>
-
-                                        <div>
-                                            <button
-                                                type="submit"
-                                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                            >
-                                                <SearchIcon className="mr-2 h-5 w-5" aria-hidden="true"/>
-                                                Rechercher
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                                 {users.map((user) => (
-                                    <div key={user.id} className="bg-white shadow rounded-lg overflow-hidden">
+                                    <div key={user.id}
+                                         className="bg-white shadow-md rounded-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
                                         <div className="p-6">
-                                            <div className="flex justify-between items-start">
-                                                <div>
-                                                    <input
-                                                        type="text"
-                                                        className={`text-lg font-medium text-gray-900 ${currentRole === 'employee' ? 'bg-gray-100' : ''} w-full border rounded-md px-3 py-2`}
-                                                        value={editedUsers[user.id]?.pseudo ?? user.pseudo}
-                                                        readOnly={currentRole === 'employee'}
-                                                        onChange={(e) => handleFieldChange(user.id, 'pseudo', e.target.value)}
-                                                    />
-                                                    <input
-                                                        type="email"
-                                                        className={`text-sm text-gray-500 mt-1 ${currentRole === 'employee' ? 'bg-gray-100' : ''} w-full border rounded-md px-3 py-2`}
-                                                        value={editedUsers[user.id]?.email ?? user.email}
-                                                        readOnly={currentRole === 'employee'}
-                                                        onChange={(e) => handleFieldChange(user.id, 'email', e.target.value)}
-                                                    />
-                                                </div>
-                                                <div
-                                                    className="flex items-center  px-2 py-1 rounded-full text-sm font-medium">
-                                                    <select
-                                                        value={editedUsers[user.id]?.role ?? user.role}
-                                                        onChange={(e) => handleRoleChange(user.id, e.target.value)}
-                                                        className={`${currentRole === 'employee' ? 'bg-gray-100' : ''} border rounded-md px-3 py-2`}
-                                                        disabled={currentRole === 'employee'}
-                                                    >
-                                                        <option value="normal">Utilisateur</option>
-                                                        <option value="employee">Employée</option>
-                                                        <option value="administrator">Administrateur</option>
-                                                    </select>
-                                                </div>
+                                            <div className="flex flex-col space-y-2">
+                                                <h2 className="text-xl font-semibold text-gray-800">
+                                                    {user.userName}
+                                                </h2>
+                                                <p className="text-gray-600">
+                                                    <strong>Email:</strong> {user.email}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Prénom:</strong> {user.firstName}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Nom:</strong> {user.lastName}
+                                                </p>
+                                                <p className="text-gray-600">
+                                                    <strong>Numéro:</strong> {user.phoneNumber || 'Non renseigné'}
+                                                </p>
                                             </div>
-                                            {currentRole === 'administrator' && (
-                                                <div className="mt-6 flex items-center justify-between">
-                                                    <button
-                                                        onClick={() => saveUserChanges(user.id)}
-                                                        className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                                    >
-                                                        Enregistrer
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleDeleteUser(user.id)}
-                                                        className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                                    >
-                                                        Supprimer
-                                                    </button>
-                                                </div>
-                                            )}
                                         </div>
                                     </div>
                                 ))}
                             </div>
+
                         </div>
                     )}
-                    {activeTab === "hotels" && (
+                    {activeTab === "events" && (
                         <div className="lg:w-full">
                             <div className="flex items-center justify-between mb-6">
                                 <h2 className="text-2xl font-bold text-gray-900">Résultats de recherche</h2>
-                                {currentRole !== 'administrator' && (
+                                {currentRole !== 'admin' && (
                                     <p className="text-sm text-gray-500">
-                                        Seuls les administrateurs ont le droit de modifier les informations.
+                                        Seuls les administrateurs ont le droit de modifier les évènements
                                     </p>
                                 )}
                             </div>
@@ -408,29 +300,29 @@ export default function AdminPage() {
                             )}
                             <div className="bg-white shadow-md py-6 mb-8">
                                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                                    <form onSubmit={handleSearchHotels}
-                                          className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <form onSubmit={handleSearchEvents}
+                                          className="grid grid-cols-1 md:grid-cols-4 gap-4">
                                         <div className="relative">
-                                            <label htmlFor="hotelName" className="sr-only">
-                                                Nom de l'hôtel
+                                            <label htmlFor="eventName" className="sr-only">
+                                                Nom de l'évènement
                                             </label>
                                             <div
                                                 className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <HotelIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                                <TicketIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelName"
-                                                name="hotelName"
+                                                id="eventName"
+                                                name="eventName"
                                                 type="text"
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Nom de l'hôtel"
-                                                value={pseudo}
-                                                onChange={(e) => setPseudo(e.target.value)}
+                                                placeholder="Nom de l'évènement"
+                                                value={title}
+                                                onChange={(e) => setTitle(e.target.value)}
                                             />
                                         </div>
 
                                         <div className="relative">
-                                            <label htmlFor="hotelLocation" className="sr-only">
+                                            <label htmlFor="eventLocation" className="sr-only">
                                                 Localisation
                                             </label>
                                             <div
@@ -438,13 +330,31 @@ export default function AdminPage() {
                                                 <MapPinIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelLocation"
-                                                name="hotelLocation"
+                                                id="eventLocation"
+                                                name="eventLocation"
                                                 type="text"
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                                 placeholder="Localisation"
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
+                                                value={location}
+                                                onChange={(e) => setLocation(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="relative">
+                                            <label htmlFor="eventDate" className="sr-only">
+                                                Date
+                                            </label>
+                                            <div
+                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <CalendarIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                            </div>
+                                            <input
+                                                id="eventLocation"
+                                                name="eventLocation"
+                                                type="date"
+                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                placeholder="Date"
+                                                value={date}
+                                                onChange={(e) => setDate(e.target.value)}
                                             />
                                         </div>
 
@@ -461,55 +371,80 @@ export default function AdminPage() {
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                                {hotels.map((hotel) => (
-                                    <div key={hotel.id} className="bg-white shadow rounded-lg overflow-hidden">
+                                {!loading && events.map((event) => (
+                                    <div key={event.id} className="bg-white shadow rounded-lg overflow-hidden">
                                         <div className="p-6">
-                                            <div className="flex justify-between items-start">
-                                                <div>
-                                                    <input
-                                                        type="text"
-                                                        className={`text-lg font-medium text-gray-900 ${currentRole === 'employee' ? 'bg-gray-100' : ''} w-full border rounded-md px-3 py-2`}
-                                                        value={editedHotels[hotel.id]?.name ?? hotel.name}
-                                                        readOnly={currentRole === 'employee'}
-                                                        onChange={(e) => handleHotelFieldChange(hotel.id, 'name', e.target.value)}
-                                                    />
-                                                    <input
-                                                        type="text"
-                                                        className={`text-sm text-gray-500 mt-1 ${currentRole === 'employee' ? 'bg-gray-100' : ''} w-full border rounded-md px-3 py-2`}
-                                                        value={editedHotels[hotel.id]?.location ?? hotel.location}
-                                                        readOnly={currentRole === 'employee'}
-                                                        onChange={(e) => handleHotelFieldChange(hotel.id, 'location', e.target.value)}
-                                                    />
-                                                </div>
-                                                <div
-                                                    className="flex items-center  px-2 py-1 rounded-full text-sm font-medium">
-                                                    <select
-                                                        value={editedHotels[hotel.id]?.rating ?? hotel.rating}
-                                                        onChange={(e) => handleHotelFieldChange(hotel.id, 'rating', e.target.value)}
-                                                        className={`${currentRole === 'employee' ? 'bg-gray-100' : ''} border rounded-md px-3 py-2`}
-                                                        disabled={currentRole === 'employee'}
-                                                    >
-                                                        <option value="1">1 Étoile</option>
-                                                        <option value="2">2 Étoiles</option>
-                                                        <option value="3">3 Étoiles</option>
-                                                        <option value="4">4 Étoiles</option>
-                                                        <option value="5">5 Étoiles</option>
-                                                    </select>
-                                                </div>
+                                            <div className="flex flex-col items-start justify-between">
+                                                <label className="text-gray-700">Titre:</label>
+                                                <input
+                                                    type="text"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2`}
+                                                    value={event.title}
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        title: e.target.value
+                                                    } : ev))}
+                                                />
+                                                <label className="text-gray-700 mt-2">Description:</label>
+                                                <input
+                                                    type="text"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2 mt-2`}
+                                                    value={event.description}
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        description: e.target.value
+                                                    } : ev))}
+                                                />
+                                                <label className="text-gray-700 mt-2">Date:</label>
+                                                <input
+                                                    type="datetime-local"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2 mt-2`}
+                                                    value={new Date(event.date).toISOString().slice(0, 16)}
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        date: e.target.value
+                                                    } : ev))}
+                                                />
+                                                <label className="text-gray-700 mt-2">Localisation:</label>
+                                                <input
+                                                    type="text"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2 mt-2`}
+                                                    value={event.location}
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        location: e.target.value
+                                                    } : ev))}
+
+                                                />
+                                                <label className="text-gray-700 mt-2">Image:</label>
+                                                <input
+                                                    type="file"
+                                                    accept="image/*"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2 mt-2`}
+
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        image: e.target.files[0]
+                                                    } : ev))}
+                                                />
+                                                <label className="text-gray-700 mt-2">Nombre de places:</label>
+                                                <input
+                                                    type="number"
+                                                    className={`text-lg font-medium text-gray-900 w-full border rounded-md px-3 py-2 mt-2`}
+                                                    value={event.numberOfPlaces}
+                                                    onChange={(e) => setEvents(events.map(ev => ev.id === event.id ? {
+                                                        ...ev,
+                                                        numberOfPlaces: e.target.value
+                                                    } : ev))}
+                                                />
                                             </div>
-                                            {currentRole === 'administrator' && (
+                                            {currentRole === 'admin' && (
                                                 <div className="mt-6 flex items-center justify-between">
                                                     <button
-                                                        onClick={() => saveHotelChanges(hotel.id)}
+                                                        onClick={() => saveEventChanges(event.id)}
                                                         className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                                     >
                                                         Enregistrer
-                                                    </button>
-                                                    <button
-                                                        onClick={() => handleDeleteHotel(hotel.id)}
-                                                        className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-                                                    >
-                                                        Supprimer
                                                     </button>
                                                 </div>
                                             )}
@@ -519,10 +454,10 @@ export default function AdminPage() {
                             </div>
                         </div>
                     )}
-                    {activeTab === "add-hotel" && (
+                    {activeTab === "add-event" && (
                         <div className="lg:w-full">
                             <div className="flex items-center justify-center mb-6">
-                                <h2 className="text-2xl font-bold text-gray-900">Ajouter un hôtel</h2>
+                                <h2 className="text-2xl font-bold text-gray-900">Ajouter un évènement</h2>
                             </div>
                             {successMessage && (
                                 <div
@@ -544,66 +479,31 @@ export default function AdminPage() {
                                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                                     <form onSubmit={(e) => {
                                         e.preventDefault();
-                                        createHotel(hotelForm);
+                                        createEvent(eventForm);
                                     }}
                                           className=" grid grid-cols-1 gap-4 max-w-lg mx-auto">
                                         <div className="relative">
-                                            <label htmlFor="hotelName" className="sr-only">
-                                                Nom de l'hôtel
+                                            <label htmlFor="eventTitle" className="sr-only">
+                                                Titre de l'évènement
                                             </label>
                                             <div
                                                 className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <HotelIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                                <TicketIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelName"
-                                                name="hotelName"
+                                                id="eventTitle"
+                                                name="eventTitle"
                                                 type="text"
+                                                required={true}
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Nom de l'hôtel"
-                                                value={hotelForm.name}
-                                                onChange={(e) => setHotelForm({...hotelForm, name: e.target.value})}
+                                                placeholder="Titre de l'évènement"
+                                                value={eventForm.Title}
+                                                onChange={(e) => setEventForm({...eventForm, Title: e.target.value})}
                                             />
                                         </div>
 
                                         <div className="relative">
-                                            <label htmlFor="hotelLocation" className="sr-only">
-                                                Localisation
-                                            </label>
-                                            <div
-                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <MapPinIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                            </div>
-                                            <input
-                                                id="hotelLocation"
-                                                name="hotelLocation"
-                                                type="text"
-                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Localisation"
-                                                value={hotelForm.location}
-                                                onChange={(e) => setHotelForm({...hotelForm, location: e.target.value})}
-                                            />
-                                        </div>
-                                        <div className="relative">
-                                            <label htmlFor="hotelPrice" className="sr-only">
-                                                Prix
-                                            </label>
-                                            <div
-                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <EuroIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                            </div>
-                                            <input
-                                                id="hotelPrice"
-                                                name="hotelPrice"
-                                                type="number"
-                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Prix"
-                                                value={hotelForm.price}
-                                                onChange={(e) => setHotelForm({...hotelForm, price: e.target.value})}
-                                            />
-                                        </div>
-                                        <div className="relative">
-                                            <label htmlFor="hotelDescription" className="sr-only">
+                                            <label htmlFor="eventDescription" className="sr-only">
                                                 Description
                                             </label>
                                             <div
@@ -611,38 +511,62 @@ export default function AdminPage() {
                                                 <FileTextIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelDescription"
-                                                name="hotelDescription"
+                                                id="eventDescription"
+                                                name="eventDescription"
                                                 type="text"
+                                                required={true}
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                                 placeholder="Description"
-                                                value={hotelForm.description}
-                                                onChange={(e) => setHotelForm({
-                                                    ...hotelForm,
-                                                    description: e.target.value
+                                                value={eventForm.Description}
+                                                onChange={(e) => setEventForm({
+                                                    ...eventForm,
+                                                    Description: e.target.value
                                                 })}
                                             />
                                         </div>
+
                                         <div className="relative">
-                                            <label htmlFor="hotelRating" className="sr-only">
-                                                Note
+                                            <label htmlFor="eventDate" className="sr-only">
+                                                Date
                                             </label>
                                             <div
                                                 className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <StarIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                                <CalendarIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelRating"
-                                                name="hotelRating"
-                                                type="number" min="1" max="5"
+                                                id="eventDate"
+                                                name="eventDate"
+                                                type="datetime-local"
+                                                required={true}
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Note"
-                                                value={hotelForm.rating}
-                                                onChange={(e) => setHotelForm({...hotelForm, rating: e.target.value})}
+                                                placeholder="Date"
+                                                value={eventForm.Date}
+                                                onChange={(e) => setEventForm({...eventForm, Date: e.target.value})}
                                             />
                                         </div>
+
                                         <div className="relative">
-                                            <label htmlFor="hotelPicture" className="sr-only">
+                                            <label htmlFor="eventLocation" className="sr-only">
+                                                Localisation
+                                            </label>
+                                            <div
+                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                <MapPinIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                            </div>
+                                            <input
+                                                id="eventLocation"
+                                                name="eventLocation"
+                                                type="text"
+                                                required={true}
+                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                placeholder="Localisation"
+                                                value={eventForm.Location}
+                                                onChange={(e) => setEventForm({...eventForm, Location: e.target.value})}
+                                            />
+                                        </div>
+
+                                        <div className="relative">
+                                            <label htmlFor="eventImage" className="sr-only">
                                                 Image
                                             </label>
                                             <div
@@ -650,64 +574,40 @@ export default function AdminPage() {
                                                 <ImageIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelPicture"
-                                                name="hotelPicture"
-                                                type="text"
+                                                id="eventImage"
+                                                name="eventImage"
+                                                type="file"
+                                                accept="image/*"
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Image"
-                                                value={hotelForm.picture}
-                                                onChange={(e) => setHotelForm({...hotelForm, picture: e.target.value})}
+                                                onChange={handleImageChange}
                                             />
                                         </div>
+
                                         <div className="relative">
-                                            <label htmlFor="hotelAmenities" className="sr-only">
-                                                Équipements
+                                            <label htmlFor="eventNumberOfPlaces" className="sr-only">
+                                                Nombre de places
                                             </label>
                                             <div
                                                 className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <SettingsIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
-                                            </div>
-                                            <select
-                                                id="hotelAmenities"
-                                                name="hotelAmenities"
-                                                multiple
-                                                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                value={hotelForm.amenities}
-                                                onChange={(e) => {
-                                                    const options = Array.from(e.target.selectedOptions, option => option.value);
-                                                    setHotelForm({...hotelForm, amenities: options});
-                                                }}
-                                            >
-                                                <option value="wifi">Wifi</option>
-                                                <option value="parking">Parking</option>
-                                                <option value="pet-friendly">Animaux acceptés</option>
-                                                <option value="pool">Piscine</option>
-                                            </select>
-                                        </div>
-                                        <div className="relative">
-                                            <label htmlFor="hotelCapacity" className="sr-only">
-                                                Capacité
-                                            </label>
-                                            <div
-                                                className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                                <PersonStandingIcon className="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                                                <PersonStandingIcon className="h-5 w-5 text-gray-400"
+                                                                    aria-hidden="true"/>
                                             </div>
                                             <input
-                                                id="hotelCapacity"
-                                                name="hotelCapacity"
+                                                id="eventNumberOfPlaces"
+                                                name="eventNumberOfPlaces"
                                                 type="number"
-                                                min="1"
+                                                min="0"
+                                                required={true}
                                                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                placeholder="Capacité"
-                                                value={hotelForm.capacity}
-                                                onChange={(e) => setHotelForm({...hotelForm, capacity: e.target.value})}
+                                                placeholder="Nombre de places"
+                                                value={eventForm.NumberOfPlaces}
+                                                onChange={handleNumberOfPlacesChange}
                                             />
-
                                         </div>
                                         <div>
                                             <button
                                                 type="submit"
-                                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 cursor-pointer"
                                             >
                                                 Ajouter
                                             </button>
@@ -719,6 +619,11 @@ export default function AdminPage() {
                     )}
 
                 </div>
+                {loading && (
+                    <div className="flex items-center justify-center h-screen">
+                        <LoaderCircleIcon className={"animate-spin h-10 w-10"}/>
+                    </div>
+                )}
             </main>
         </div>
     )

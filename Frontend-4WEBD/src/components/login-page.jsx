@@ -22,7 +22,7 @@ export default function LoginPage() {
             .then((response) => {
                 let user = {};
                 user.email=response.data.email;
-                user.role=response.data.role[0];
+                user.role = response.data.role.includes("admin") ? "admin" : response.data.role[0];
                 user.userName=response.data.userName;
                 const token = response.data.token;
                 login(user, token);
@@ -110,7 +110,7 @@ export default function LoginPage() {
                     <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300"
+                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300 cursor-pointer"
                         >
                             Se connecter
                         </button>

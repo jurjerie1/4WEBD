@@ -20,15 +20,15 @@ export default function Header() {
 
                     {user ? (
                         <>
-                            {(user.role === "employee" || user.role === "administrator") && (
-                                <button className="text-gray-500 hover:text-gray-700"
+                            {(user.role === "admin") && (
+                                <button className="text-gray-500 hover:text-gray-700 cursor-pointer"
                                         onClick={() => navigate("/admin")}>Administration</button>
                             )}
-                            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 "
+                            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 cursor-pointer"
                                     onClick={() => navigate("/account")}>Mon
                                 compte
                             </button>
-                            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700" data-cy="logout-icon"
+                            <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 cursor-pointer" data-cy="logout-icon"
                                     onClick={logOut}>
                                 <LogOutIcon className="w-6 h-6"/>
                             </button>

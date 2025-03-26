@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Trash } from 'lucide-react';
+import {LoaderCircleIcon, Trash} from 'lucide-react';
 import { useAuth } from '../hooks/useAuth.js';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
@@ -18,6 +18,7 @@ export default function AccountUserInfo() {
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleUpdateInfo = (field, value) => {
         setUserInfo({ ...userInfo, [field]: value });
@@ -58,6 +59,7 @@ export default function AccountUserInfo() {
     };
 
     const handleSearchInfos = () => {
+        setLoading(true);
         axios.get(`${apiUrl}/UserService/Users`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -72,9 +74,11 @@ export default function AccountUserInfo() {
                     email: userData.email || "Non renseigné",
                     phoneNumber: userData.phoneNumber || "Non renseigné"
                 });
+                setLoading(false);
             })
             .catch((error) => {
                 console.error(error);
+                setLoading(false)
             });
     };
 
@@ -103,6 +107,11 @@ export default function AccountUserInfo() {
                     role="alert">
                     <strong className="font-bold">Erreur! </strong>
                     <span className="block sm:inline">{errorMessage}</span>
+                </div>
+            )}
+            {loading && (
+                <div className="flex items-center justify-center h-96">
+                    <LoaderCircleIcon className={"animate-spin h-10 w-10 mx-auto"}/>
                 </div>
             )}
 

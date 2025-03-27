@@ -214,7 +214,7 @@ namespace _4WEBD.Ticket.Controllers
                 {
                     To = userEmail,
                     TemplateId = TemplateId.ConfirmTicketTemplate,
-                    Url = "confirm?ticketId=" + ticket.Id + "&confirmToken=" + confirmationTicket.ConfirmToken,
+                    Url = "confirm-booking?ticketId=" + ticket.Id + "&confirmToken=" + confirmationTicket.ConfirmToken,
                     UserName = userName,
                     UserId = Guid.Parse(userId),
                     AutreInfo = events.First().Title + ";" + events.First().Date + ";" + ticketDto.NumberOfPlaces

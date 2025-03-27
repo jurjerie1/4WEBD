@@ -39,12 +39,6 @@ export default function ConfirmCancelBooking() {
                          role="alert">
                         <strong className="font-bold">Bravo! </strong>
                         <span className="block sm:inline">{confirmSuccessMessage}</span>
-                        <p className="mt-2 text-center text-sm text-gray-600">
-                            Vous pouvez maintenant vous connecter{" "}
-                            <Link to="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                ici
-                            </Link>.
-                        </p>
                     </div>
                 )}
                 {errors && (

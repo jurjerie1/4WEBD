@@ -21,7 +21,7 @@ export default function AccountReservationInfo() {
             }
         })
             .then((response) => {
-                setSuccessMessage(response.data.message);
+                setSuccessMessage("Réservation annulée, cliquez sur lien dans le mail pour confirmer l'annulation");
                 handleSearchReservations();
             })
             .catch((error) => {
@@ -93,6 +93,7 @@ export default function AccountReservationInfo() {
                                         <Trash className="h-5 w-5 mr-2"/>
                                         Annuler
                                     </button>
+
                                 </div>
                                     )}
                             </div>

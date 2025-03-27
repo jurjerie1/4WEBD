@@ -8,6 +8,7 @@ import SearchPage from "./components/search-page.jsx";
 import AccountPage from "./components/account-page.jsx";
 import BookingTicketPage from "./components/booking-ticket-page.jsx";
 import ConfirmEmail from "./components/confirm-email.jsx";
+import ConfirmBooking from "./components/confirm-booking.jsx";
 import AdminPage from "./components/admin-page.jsx";
 import {useAuth} from "./hooks/useAuth.js";
 
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/account" element={<AccountPage/>}/>
                 <Route path="/booking/:id" element={<BookingTicketPage/>}/>
                 <Route path="/confirm-email" element={<ConfirmEmail/>}/>
+                <Route path="/confirm-booking" element={<ConfirmBooking/>}/>
                 <Route path="/admin" element={<AdminPage/>}/>
 
             </Routes>

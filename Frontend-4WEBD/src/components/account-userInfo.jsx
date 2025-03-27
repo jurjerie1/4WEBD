@@ -115,7 +115,7 @@ export default function AccountUserInfo() {
                 </div>
             )}
 
-            {userInfo && (
+            {userInfo && !loading && (
                 <div>
                     <h2 className="text-2xl font-bold mb-6">Mes Informations</h2>
                     <div className="bg-white shadow-md rounded-lg p-6 mb-6">

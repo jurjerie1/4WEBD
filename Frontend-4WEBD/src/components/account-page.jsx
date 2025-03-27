@@ -42,8 +42,8 @@ export default function AccountPage() {
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {activeTab === "reservations" && (
-                    /*<AccountReservationInfo/>*/
-                    <p className="text-2xl font-bold mb-6">Mes Réservations</p>
+                    <AccountReservationInfo />
+                    /*<p className="text-2xl font-bold mb-6">Mes Réservations</p>*/
                 )}
                 {activeTab === "informations" && (
                     <AccountUserInfo/>

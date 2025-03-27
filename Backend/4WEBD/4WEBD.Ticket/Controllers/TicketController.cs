@@ -31,7 +31,7 @@ namespace _4WEBD.Ticket.Controllers
         /// <returns></returns>
         [HttpGet("user")]
         [Authorize]
-        public async Task<IActionResult> GetAllUserTickets([FromQuery] int page = 0, [FromQuery] int pageSize = 10, [FromQuery] DateTime? date = null, [FromQuery] bool isCancelled = false)
+        public async Task<IActionResult> GetAllUserTickets([FromQuery] int page = 0, [FromQuery] int pageSize = 10, [FromQuery] bool isCancelled = false)
         {
             string? userId = (HttpContext.User).Claims.FirstOrDefault(x => x.Type == "Id")?.Value;
             if (userId == "")
@@ -39,15 +39,8 @@ namespace _4WEBD.Ticket.Controllers
                 return NotFound("Utilisateur non trouvé.");
             }
             int skip = page * pageSize;
-            var query = _context.Tickets.Skip(skip).Take(10).Where(t => t.UserId.ToString() == userId).AsQueryable();
-            if (date != null)
-            {
-                query = query.Where(t => t.Date.Date >= date.Value.Date);
-            }
-            else
-            {
-                query = query.Where(t => t.Date >= DateTime.UtcNow);
-            }
+            var query = _context.Tickets.Skip(skip).Take(10).Where(t => t.UserId.ToString() == userId).OrderByDescending(x => x.Date).AsQueryable();
+            
             if (isCancelled)
             {
                 query = query.Where(t => t.Status == TicketStatus.Cancelled);
@@ -130,14 +123,10 @@ namespace _4WEBD.Ticket.Controllers
         public async Task<IActionResult> GetAllTickets([FromQuery] int page = 0, [FromQuery] int pageSize = 10, [FromQuery] DateTime? date = null, [FromQuery] Guid? eventId = null)
         {
             int skip = page * pageSize;
-            var query = _context.Tickets.Skip(skip).Take(pageSize).AsQueryable();
+            var query = _context.Tickets.Skip(skip).Take(pageSize).OrderByDescending(x => x.Date).AsQueryable();
             if (date != null)
             {
                 query = query.Where(t => t.Date.Date >= date.Value.Date);
-            }
-            else
-            {
-                query = query.Where(t => t.Date >= DateTime.UtcNow);
             }
             if (eventId != Guid.Empty)
             {

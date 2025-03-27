@@ -2,8 +2,8 @@ services:
   4WEBD_frontend:
     image: 4webd-frontend
     build:
-      context: .
+      context: ../../Frontend-4WEBD
     ports:
       - "80:80"
     environment:
-      - VITE_API_URL=http://localhost:3001/api
+      - VITE_API_URL=http://localhost:5001/api

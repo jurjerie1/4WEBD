@@ -36,6 +36,7 @@ namespace _4WEBD.Event.Controllers
                 Id = eventModel.Id,
                 Title = eventModel.Title,
                 Description = eventModel.Description,
+                Location = eventModel.Location,
                 Date = eventModel.Date,
                 NumberOfPlaces = eventModel.NumberOfPlaces,
                 Image = "/Event/Images/"+eventModel.Image,

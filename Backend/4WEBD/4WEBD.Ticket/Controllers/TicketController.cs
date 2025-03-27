@@ -198,7 +198,7 @@ namespace _4WEBD.Ticket.Controllers
                 {
                     EventId = ticketDto.EventId,
                     NumberOfPlaces = ticketDto.NumberOfPlaces,
-                    Date = events.First().Date,
+                    Date = DateTime.UtcNow,
                     UserId = Guid.Parse(userId),
                     Status = TicketStatus.Pending
                 };

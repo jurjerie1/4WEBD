@@ -35,4 +35,8 @@
     <ProjectReference Include="..\4WEBD.SharedClasses\4WEBD.SharedClasses.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -47,6 +47,7 @@ public class EventConsumer(EventContext context, ILogger<EventConsumer> logger, 
                         Date = eventInfoItem.Date,
                         NumberOfPlaces = eventInfoItem.NumberOfPlaces,
                         Location = eventInfoItem.Location,
+                        Image = "/Event/Images/"+eventInfoItem.Image
                         
                     });
                 }

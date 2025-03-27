@@ -329,7 +329,7 @@ namespace _4WEBD.Ticket.Controllers
             {
                 To = userEmail,
                 TemplateId = TemplateId.CancelledTicketTemplate,
-                Url = "confirm?ticketId=" + ticket.Id + "&confirmToken=" + confirmationTicket.ConfirmToken,
+                Url = "confirm-cancel-booking?ticketId=" + ticket.Id + "&confirmToken=" + confirmationTicket.ConfirmToken,
                 UserName = userName,
                 UserId = Guid.Parse(userId),
             };

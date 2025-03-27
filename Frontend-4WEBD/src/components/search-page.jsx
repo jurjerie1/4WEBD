@@ -64,7 +64,6 @@ export default function SearchPage() {
     useEffect(() => {
         if (user) {
             fetchEvents();
-            console.log(token);
         }
     }, [])
     if (user)

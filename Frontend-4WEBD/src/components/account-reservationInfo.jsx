@@ -10,7 +10,6 @@ export default function AccountReservationInfo() {
     const {user, token} = useAuth();
     const navigate = useNavigate();
     const [reservations, setReservations] = useState([]);
-    const [modifiedReservations, setModifiedReservations] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
@@ -45,40 +44,7 @@ export default function AccountReservationInfo() {
                 console.error(error);
             });
     }
-    const handleDateChange = (id, field, value) => {
-        setModifiedReservations((prev) => {
-            const updatedReservation = {
-                ...prev[id],
-                [field]: value,
-            };
-            if (field === 'check_in_date' && !updatedReservation.check_out_date) {
-                updatedReservation.check_out_date = reservations.find(res => res.id === id).check_out_date;
-            } else if (field === 'check_out_date' && !updatedReservation.check_in_date) {
-                updatedReservation.check_in_date = reservations.find(res => res.id === id).check_in_date;
-            }
-            return {
-                ...prev,
-                [id]: updatedReservation,
-            };
-        });
-    };
-    const handleUpdateReservation = (id) => {
-        const updatedReservation = modifiedReservations[id];
 
-        axios.put(`${apiUrl}/reservations/${id}`, updatedReservation, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            }
-        })
-            .then((response) => {
-                setSuccessMessage(response.data.message);
-                handleSearchReservations();
-            })
-            .catch((error) => {
-                setErrorMessage(error.response.data.error);
-                console.error('Erreur lors de la mise à jour de la réservation', error);
-            });
-    };
 
     useEffect(() => {
         if (user) {
@@ -146,7 +112,7 @@ export default function AccountReservationInfo() {
                                     <div className="flex items-center mb-4">
                                         <label className="block w-1/4 text-gray-700">Statut:</label>
                                         <span
-                                            className={`px-2 py-1 rounded-full text-xs font-medium ${reservation.status === "confirmed" ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}`}
+                                            className={`px-2 py-1 rounded-full text-xs font-medium ${reservation.status === "Pending" ? "bg-yellow-100 text-yellow-800" : reservation.status === "Confirmed" ? "bg-green-100 text-green-800" : reservation.status === "Cancelled" ? "bg-red-100 text-red-800" : "bg-gray-100 text-gray-800"}`}
                                         >
                 {reservation.status === "Pending" ? "En attente" : reservation.status === "Confirmed" ? "Confirmée" : reservation.status === "Cancelled" ? "Annulée" : "Inconnue"}
             </span>{reservation.status === "Pending" && ( <p className="text-center text-sm text-gray-600">

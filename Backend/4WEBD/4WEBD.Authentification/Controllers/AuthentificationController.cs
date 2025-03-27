@@ -13,7 +13,7 @@ namespace _4WEBD.Authentification.Controllers
 {
     [Route("[controller]s")]
     [ApiController]
-    public class AuthentificationController(IdentityContext context, UserManager<UserModel> userManager,ISendEndpointProvider sendEndpointProvider ,IConfiguration configuration, RoleManager<IdentityRole<Guid>> roleManager) : ControllerBase
+    public class AuthentificationController(IdentityContext context, UserManager<UserModel> userManager, ISendEndpointProvider sendEndpointProvider, IConfiguration configuration, RoleManager<IdentityRole<Guid>> roleManager) : ControllerBase
     {
 
         #region Properties
@@ -58,7 +58,7 @@ namespace _4WEBD.Authentification.Controllers
             }
 
             var role = _userManager.GetRolesAsync(user).Result;
-            if(role.Count == 0)
+            if (role.Count == 0)
             {
                 role.Add("user");
             }
@@ -83,13 +83,25 @@ namespace _4WEBD.Authentification.Controllers
             {
                 return BadRequest("Cette adresse e-mail est déjà utilisée.");
             }
-            var role = await _roleManager.FindByNameAsync("user");
+            var role = new IdentityRole<Guid>();
+            if (registerDTO.UserName == "admin")
+            {
+                role = await _roleManager.FindByNameAsync("admin");
+            }
+            else
+            {
+                role = await _roleManager.FindByNameAsync("user");
+            }
             if (role == null)
             {
-                role = new IdentityRole<Guid>("user");
+                if (registerDTO.UserName == "admin")
+                    role = new IdentityRole<Guid>("admin");
+                else
+                {
+                    role = new IdentityRole<Guid>("user");
+                }
                 await _roleManager.CreateAsync(role);
             }
-
 
             UserModel user = new UserModel
             {
@@ -106,7 +118,7 @@ namespace _4WEBD.Authentification.Controllers
 
             if (success.Succeeded)
             {
-                await _userManager.AddToRoleAsync(user, "user");
+                await _userManager.AddToRoleAsync(user, role.Name ?? "user");
 
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
@@ -135,6 +147,7 @@ namespace _4WEBD.Authentification.Controllers
 
                 return Ok(new { message = "Inscription réussie, merci de valider votre compte." });
             }
+
 
 
             return BadRequest(success.Errors);

@@ -49,6 +49,7 @@ export default function AccountReservationInfo() {
     useEffect(() => {
         if (user) {
             handleSearchReservations();
+            console.log(token)
         } else {
             navigate('/login');
         }

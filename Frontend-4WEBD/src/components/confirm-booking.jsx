@@ -23,7 +23,7 @@ export default function ConfirmBooking() {
             }
         })
             .then(() => {
-                setConfirmSuccessMessage("Votre compte a été confirmé avec succès.");
+                setConfirmSuccessMessage("Votre réservation a été confirmé avec succès.");
             })
             .catch((error) => {
                 console.error(error);

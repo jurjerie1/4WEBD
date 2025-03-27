@@ -73,7 +73,7 @@ export default function AccountReservationInfo() {
                     <span className="block sm:inline">{errorMessage}</span>
                 </div>
             )}
-            {reservations && (
+            {Array.isArray(reservations) && reservations  ? (
                 <div>
                     <h2 className="text-2xl font-bold mb-6">Mes Réservations</h2>
                     {reservations.map(reservation => (
@@ -133,8 +133,7 @@ export default function AccountReservationInfo() {
                         </div>
                     ))}
                 </div>
-            )}
-            {reservations.length === 0 && (
+            ): (
                 <div className="bg-white shadow-md rounded-lg p-6 mb-6">
                     <p>Vous n'avez pas de réservations en cours.</p>
                 </div>

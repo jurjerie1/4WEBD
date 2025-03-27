@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: ../../Frontend-4WEBD
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+

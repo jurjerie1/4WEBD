@@ -2,3 +2,6 @@ event_uploads/
 .idea/
 .vs/
 .vscode/
+
+**/bin/
+**/obj/

@@ -102,7 +102,7 @@ services:
       - RABBITMQ_CONNECTIONSTRING=${RABBITMQ_CONNECTIONSTRING}
       - Jwt__Key=${JWT_KEY}
     depends_on:
-      - 4WEBD_DB
+      - 4WEBD_USER
 
   4WEBD_RabbitMQ:
     image: rabbitmq:4.0-management

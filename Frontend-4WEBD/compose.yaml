@@ -1,8 +1,9 @@
 services:
-  frontend:
+  4WEBD_frontend:
+    image: 4webd-frontend
     build:
-      context: ../../Frontend-4WEBD
-      dockerfile: Dockerfile
+      context: .
     ports:
       - "80:80"
-
+    environment:
+      - VITE_API_URL=http://localhost:3001/api

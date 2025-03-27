@@ -44,6 +44,7 @@ function App() {
                 <Route path="/confirm-booking" element={<ConfirmBooking/>}/>
                 <Route path="/confirm-cancel-booking" element={<ConfirmCancelBooking/>}/>
                 <Route path="/admin" element={<AdminPage/>}/>
+                <Route path="*" element={<h1>404 - Page not found</h1>}/>
 
             </Routes>
             </BrowserRouter>

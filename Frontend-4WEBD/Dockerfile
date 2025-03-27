@@ -10,10 +10,8 @@ COPY package*.json ./
 # Installer les dépendances
 RUN npm install
 
-
 # Copier le reste des fichiers de l'application
 COPY . .
-
 
 # Construire l'application React
 RUN npm run build
@@ -23,6 +21,9 @@ FROM nginx:alpine
 
 # Copier les fichiers de build de l'application React dans le répertoire de Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Copier le fichier de configuration Nginx personnalisé
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Exposer le port 80
 EXPOSE 80

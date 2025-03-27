@@ -39,7 +39,7 @@ namespace _4WEBD.Ticket.Controllers
                 return NotFound("Utilisateur non trouvé.");
             }
             int skip = page * pageSize;
-            var query = _context.Tickets.Skip(skip).Take(10).Where(t => t.UserId.ToString() == userId).OrderByDescending(x => x.Date).AsQueryable();
+            var query = _context.Tickets.Where(t => t.UserId.ToString() == userId).OrderByDescending(x => x.Date).AsQueryable();
             
             if (isCancelled)
             {
@@ -49,7 +49,7 @@ namespace _4WEBD.Ticket.Controllers
             {
                 query = query.Where(t => t.Status != TicketStatus.Cancelled);
             }
-            var tickets = await query.ToListAsync();
+            var tickets = await query.Skip(skip).Take(10).ToListAsync();
             try
             {
                 var message = new GetEventInfo
@@ -123,7 +123,7 @@ namespace _4WEBD.Ticket.Controllers
         public async Task<IActionResult> GetAllTickets([FromQuery] int page = 0, [FromQuery] int pageSize = 10, [FromQuery] DateTime? date = null, [FromQuery] Guid? eventId = null)
         {
             int skip = page * pageSize;
-            var query = _context.Tickets.Skip(skip).Take(pageSize).OrderByDescending(x => x.Date).AsQueryable();
+            var query = _context.Tickets.OrderByDescending(x => x.Date).AsQueryable();
             if (date != null)
             {
                 query = query.Where(t => t.Date.Date >= date.Value.Date);
@@ -132,7 +132,7 @@ namespace _4WEBD.Ticket.Controllers
             {
                 query = query.Where(t => t.EventId == eventId);
             }
-            var tickets = await query.ToListAsync();
+            var tickets = await query.Skip(skip).Take(pageSize).ToListAsync();
             try
             {
                 var message = new GetEventInfo

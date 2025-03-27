@@ -15,7 +15,7 @@ export default function ConfirmCancelBooking() {
         const queryParams = new URLSearchParams(location.search);
         const ticketId = queryParams.get("ticketId");
         const confirmToken = queryParams.get("confirmToken");
-        const url = `${apiUrl}/api/TicketService/api/Ticket/{id}/${ticketId}/${confirmToken}`;
+        const url = `${apiUrl}/TicketService/api/Ticket/{id}/${ticketId}/${confirmToken}`;
 
         axios.get(url, {
             headers: {

@@ -13,6 +13,7 @@ Pour lancer le projet, exécutez la commande suivante :
 docker compose -f .\Backend\4WEBD\compose.yaml -f .\Frontend-4WEBD\compose.yaml up --build -d
 ```
 
+Pour se connecter en tant qu'administrateur, nous avons configuré de façon à ce que l'utilisateur qui s'inscrive avec le pseudo "admin" aie les roles correspondants
 ### Accès aux services
 
 - **Frontend** : [http://localhost/](http://localhost/)  
@@ -24,5 +25,5 @@ docker compose -f .\Backend\4WEBD\compose.yaml -f .\Frontend-4WEBD\compose.yaml 
 - **Git** : [https://github.com/jurjerie1/4WEBD](https://github.com/jurjerie1/4WEBD)
 
 **Projet 4WEBD**  
-Réalisé par : *Pierre Van Maele* & *François Xavier Le Provost de Saint Jean*
+Réalisé par : *Pierre Van Maele* & *François Xavier de Saint Jean*
 

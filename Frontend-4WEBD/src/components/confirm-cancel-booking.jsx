@@ -15,19 +15,17 @@ export default function ConfirmCancelBooking() {
         const queryParams = new URLSearchParams(location.search);
         const ticketId = queryParams.get("ticketId");
         const confirmToken = queryParams.get("confirmToken");
-        const url = `${apiUrl}/TicketService/api/Ticket/{id}/${ticketId}/${confirmToken}`;
-
-        axios.get(url, {
+        axios.get(`${apiUrl}/TicketService/api/Ticket/confirm/${ticketId}/${confirmToken}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             }
         })
             .then(() => {
-                setConfirmSuccessMessage("Votre compte a été confirmé avec succès.");
+                setConfirmSuccessMessage("Votre réservation a été annulée avec succès.");
             })
             .catch((error) => {
                 console.error(error);
-                setErrors("Une erreur est survenue lors de la confirmation de votre réservation.");
+                setErrors("Une erreur est survenue lors de la confirmation d'annulation de votre réservation.");
             });
     }, [location.search]);  // Ajouter location.search comme dépendance
 
